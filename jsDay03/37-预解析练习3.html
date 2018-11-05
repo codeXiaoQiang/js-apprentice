@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>37-预解析练习3</title>
+</head>
+<body>
+<script>
+    /*
+    console.log(num);
+    function num() {
+        console.log("hello world");
+    }
+    var num = 666;
+    console.log(num);
+    */
+    /*
+    // 变量和函数同名时, 函数的优先级高
+    function num() {
+        console.log("hello world");
+    }
+    console.log(num); // undefined
+    var num;
+    num = 666;
+    console.log(num); // 666
+     */
+
+    // console.log(value); // function value() {}
+    var value = 123;
+    function value() {
+        console.log("fn value");
+    }
+    // console.log(value); // 123
+    /*
+    注意点:
+    在企业开发中变量的名称千万不要和函数的名称一样, 否则会出现混乱问题
+    规则:
+    如果在同名的变量和函数声明之前访问这个名称, 拿到的是函数
+    如果在同名的变量和函数声明之后访问这个名称, 拿到的是变量
+    function value() {
+        console.log("fn value");
+    }
+    console.log(value);
+    var value;
+    value = 123;
+     */
+
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>33-全局变量的补充</title>
+</head>
+<body>
+<script>
+    /*
+    1.默认情况下在一对script标签或者在一个单独的JS文件中定义的变量都是全局变量
+    2.默认情况下在函数中定义的变量都是局部变量
+    3.注意点:
+    3.1但是如果在函数中定义变量时, 没有书写var关键字, 那么这个局部变量就会变为全局变量
+    3.2虽然这样可以将一个局部变量变为全局变量, 但是在企业开发中千万不要这样写
+     */
+    // var num = 123; // 全局变量
+    function test() {
+        // var value = 666; // 局部变量
+        value = 666; // 全局变量
+        console.log(value);
+    }
+    test();
+    console.log(value);
+    // console.log(num);
+
+</script>
+</body>
+</html>

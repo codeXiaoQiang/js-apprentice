@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>43-构造函数创建对象的性能问题</title>
+</head>
+<body>
+<script>
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.say = function () {
+            //           obj1.name, obj1.age
+            //           obj2.name, obj2.age
+            console.log(this.name, this.age);
+        };
+    }
+    /*
+    默认情况下, 只要创建一个对象就会在对象中开辟一块存储空间
+    该存储空间中会存储对象的所有数据
+     */
+    var obj1 = new Person("lnj", 13);
+    obj1.say();
+
+    var obj2 = new Person("zq", 18);
+    obj2.say();
+
+    // 这里的===是在判断两个函数的地址是否相同
+    console.log(obj1.say === obj2.say);
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>34-预解析</title>
+</head>
+<body>
+<script>
+    /*
+    1.什么是预解析
+    我们都知道js是解释性的语言, 也就是不需要编译, 边执行边解析
+    浏览器的JS解析引擎在执行JS代码之前会做一件事情, 就是预解析
+
+    将变量和函数的声明提升到当前作用域的最前面, 这个我们就称之为预解析
+     */
+    /*
+    // console.log(num); // undefined
+    // var num = 123;
+
+
+    // test(); // 会输出test
+    // function test() {
+    //     console.log("test");
+    // }
+    */
+
+    console.log(num); // undefined
+    var num = 123;
+
+    /*
+    预解析之后的代码
+    JS解析引擎执行的是如下代码, 而不是我们编写的代码
+    // 1.将变量的声明放到当前作用域的最前面
+    var num;
+    // 2.将其它的代码按照编写的顺序依次放到后面
+    console.log(num);
+    num = 123;
+     */
+
+    test();
+    alert(test);
+    function test() {
+        console.log("test");
+    }
+
+    /*
+    1.将函数的声明放到当前作用域的最前面
+    function test() {
+        console.log("test");
+    }
+    // 2.将其它的代码按照编写的顺序依次放到后面
+    test();
+    alert(test);
+     */
+</script>
+</body>
+</html>

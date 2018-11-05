@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>44-解决构造函数的性能问题</title>
+</head>
+<body>
+<script>
+    /*
+    注意点: 在JavaScript中, 函数也是一个对象
+     */
+    function say() {
+        console.log(this.name, this.age);
+    }
+    // var say = function () {
+    //     console.log(this.name, this.age);
+    // };
+    // var say = new Function("console.log(this.name, this.age);");
+
+
+    // 定义了一个构造函数
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        // this.say = function () {
+        //     console.log(this.name, this.age);
+        // };
+        /*
+        1.解决方案:
+        将方法定义在外面, 将定义在外面函数的地址赋值给属性
+        每次创建对象, 对象中say保存的都是函数的地址, 就不会重复保存了
+        2.弊端:
+        因为将函数定义在了全局作用域中, 所以如果定义了多个函数, 会导致全局作用域的名称匮乏
+         */
+        this.say = say;
+    }
+
+    var obj1 = new Person("lnj", 13);
+    obj1.say();
+
+    var obj2 = new Person("zq", 18);
+    obj2.say();
+
+    // 这里的===是在判断两个函数的地址是否相同
+    console.log(obj1.say === obj2.say); // true
+</script>
+</body>
+</html>

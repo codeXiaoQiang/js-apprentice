@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>39-使用默认的Object来创建对象</title>
+</head>
+<body>
+<script>
+    /*
+    1.JavaScript中面向对象的概念和过去我们讲解Go语言中面向对象的概念都是一样的
+    面向过程: 所有事情亲力亲为
+    面向对象: 找到可以做某件事情的对象, 让对象来完成
+
+    2.如何创建对象:
+    2.1必须现有类, 再通过类创建对象
+    就好比现实生活中的图纸和汽车的关系, 图纸就是类(描述了对象的属性和行为)
+    汽车就是对象, 是真实存在的物体
+
+    3.JavaScript中如何创建对象
+    3.1通过默认的Object这个类(构造函数)来创建
+    3.2通过字面量来创建对象(语法糖)
+    3.3先自定义构造函数, 再通过构造函数来创建对象
+     */
+    /*
+    // 1.通过默认的Object这个类(构造函数)来创建
+    var obj = new Object();
+    // 2.在JavaScript中创建好一个对象之后, 可以动态的给这个对象添加属性和方法
+    obj.name = "lnj";
+    obj.age = 13;
+    obj.say = function () {
+        console.log("hello");
+    };
+    // 3.在JavaScript中, 只要给一个对象添加了属性和方法之后, 就可以通过这个对象访问对应的属性和方法
+    console.log(obj.name);
+    console.log(obj.age);
+    obj.say();
+    */
+
+    /*
+    // 1.通过字面量来创建对象(语法糖)
+    var obj = {}; // 相当于 var obj = new Object();
+    // 2.在JavaScript中创建好一个对象之后, 可以动态的给这个对象添加属性和方法
+    obj.name = "zq";
+    obj.age = 13;
+    obj.say = function () {
+        console.log("hello");
+    };
+    // 3.在JavaScript中, 只要给一个对象添加了属性和方法之后, 就可以通过这个对象访问对应的属性和方法
+    console.log(obj.name);
+    console.log(obj.age);
+    obj.say();
+    */
+    // 1.通过字面量来创建对象(语法糖), 并且在创建的时候就动态的添加属性和方法
+    // 注意点:
+    // {}中的属性名称和值之间使用冒号隔开, 属性和属性之间使用逗号隔开
+    var obj = {
+        name: "lnj",
+        age: 18,
+        say: function () {
+            console.log("hello");
+        }
+    };
+    // 2.在JavaScript中, 只要给一个对象添加了属性和方法之后, 就可以通过这个对象访问对应的属性和方法
+    console.log(obj.name);
+    console.log(obj.age);
+    obj.say();
+</script>
+</body>
+</html>

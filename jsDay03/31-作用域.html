@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>31-作用域</title>
+</head>
+<body>
+<script>
+    /*
+    1.JavaScript中也有作用域的概念
+    在C语言中有全局作用域和局部作用域
+    相同作用域内不能有同名的变量和函数, 不同作用域内可以有同名的变量和函数
+    在C语言中如果不同的作用域中出现了相同名称的变量, 那么访问时采用就近原则
+    以上内容在JavaScript中和C语言中都一样
+     */
+    var num = 123; // 全局变量
+    function test() { // 全局函数
+        console.log("test");
+        var value = 666; // 局部变量
+        console.log(value);
+        // var num = 777;
+        console.log(num);
+    }
+    // console.log(value); // 不能在外界访问局部变量
+    console.log(num);
+    test();
+</script>
+</body>
+</html>

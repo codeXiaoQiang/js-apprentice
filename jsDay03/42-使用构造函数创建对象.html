@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>42-使用构造函数创建对象</title>
+</head>
+<body>
+<script>
+    /*
+    1.什么是构造函数?
+    构造函数也是一个函数, 只不过是专门用于创建对象的函数而已
+
+    2.构造函数和普通函数的区别?
+    2.1构造函数的函数名称首字母必须大写
+    2.2构造函数必须使用new 来调用
+
+    3.构造函数本质上是对工厂函数的简化
+    3.1在构造函数中默认会创建一个空的对象, 会将创建的对象赋值给this, 会将创建的对象返回给调用者
+    3.2过去通过Object对象, 或者通过字面量, 或者通过工厂函数创建的对象, 我们无法判断这个对象是谁创建出来的
+       但是通过构造函数创建的对象, 我们可以判断这个对象是谁创建出来的
+    3.3默认情况下每一个对象都有一个隐藏的属性, 叫做constructor, 这个属性指向了创建当前对象的构造函数
+     */
+
+    // 1.自定义一个构造函数
+    function Person(name, age) {
+        // 1.var obj = new Object();
+        // 2.this = obj;
+        this.name = name; // obj.name = name;
+        this.age = age;
+        this.say = function () {
+            console.log("hello");
+        }
+        // 3.return obj;
+    }
+    /*
+    new Person("lnj", 13);做了什么事情?
+    1.会在构造函数中创建一个空的对象
+    2.将创建好的空对象赋值给this
+    3.将创建好的对象返回给调用者
+     */
+    var obj = new Person("lnj", 13);
+    console.log(obj);
+
+    console.log(typeof obj); // object
+    console.log(obj.constructor); // ƒ Person(name, age) {}
+
+    // 判断obj对象是否是Person构造函数创建出来的
+    // console.log(obj.constructor === Person); // 不推荐
+
+    // 在企业开发中如果想判断某个对象时候是某个构造函数创建出来的
+    // 可以使用 对象名称 instanceof 构造函数名称, 来判断
+    console.log(obj instanceof Person); // true
+
+
+    function Student(name, age, score) {
+        this.name = name; // obj.name = name;
+        this.age = age;
+        this.score = score;
+    }
+    var obj2 = new Student("zs", 11, 99);
+    console.log(obj2 instanceof Person);
+    console.log(obj2 instanceof Student);
+</script>
+</body>
+</html>

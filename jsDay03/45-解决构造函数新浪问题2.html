@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>45-解决构造函数新浪问题2</title>
+</head>
+<body>
+<script>
+
+    var fns = {
+        say: function() {
+            console.log(this.name, this.age);
+        },
+        eat: function () {
+        console.log("eat");
+        }
+    };
+
+    // 定义了一个构造函数
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        /*
+        1.解决方案:
+        将所有函数都封装到另外一个函数中, 这样函数名称就不在全局作用域中了, 这就不会导致全局作用域命名匮乏问题了
+        然后将对象中方法的地址复制给使用者即可
+         */
+        this.say = fns.say;
+        this.eat = fns.eat;
+    }
+
+    var obj1 = new Person("lnj", 13);
+    obj1.say();
+
+    var obj2 = new Person("zq", 18);
+    obj2.say();
+
+    // 这里的===是在判断两个函数的地址是否相同
+    console.log(obj1.say === obj2.say); // true
+</script>
+</body>
+</html>

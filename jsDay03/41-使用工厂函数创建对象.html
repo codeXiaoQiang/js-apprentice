@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>41-使用工厂函数创建对象</title>
+</head>
+<body>
+<script>
+    /*
+    1.无论通过Object来创建对象, 还是通过字面量来创建对象
+    都存在一个弊端, 如果创建的多个对象的属性和方法名称一样, 那么每次创建都需要重新编写一次
+
+    2.所以我们可以通过工厂函数来创建对象
+     */
+    /*
+    var obj1 = {
+        name: "lnj",
+        age: 18,
+        say: function () {
+            console.log("hello");
+        }
+    };
+    var obj2 = {
+        name: "zq",
+        age: 333,
+        say: function () {
+            console.log("hello");
+        }
+    };
+    */
+
+    // 工厂函数
+    function createPerson(name, age) {
+        // 1.通过Object创建一个空对象
+        // var obj = new Object();
+        var obj = {};
+        // 2.动态的给空对象添加属性和方法
+        obj.name = name;
+        obj.age = age;
+        obj.say = function () {
+            console.log("hello");
+        }
+        // 3.将函数中创建的对象返回给调用者
+        return obj;
+    }
+    var obj1 = createPerson("lnj", 13);
+    var obj2 = createPerson("zq", 18);
+    console.log(obj1);
+    console.log(obj2);
+
+    console.log(typeof obj1); // object
+    console.log(obj1.constructor); // ƒ Object() { [native code] }
+</script>
+</body>
+</html>

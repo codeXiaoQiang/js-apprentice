@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>38-不同定义函数方式的区别</title>
+</head>
+<body>
+<script>
+    /*
+    // 传统的定义方式
+    // 通过函数声明的方式定义
+    function test() {
+        console.log("test");
+    }
+    // 通过变量来定义
+    // 通过函数表达式的方式定义
+    var demo = function () {
+        console.log("demo");
+    }
+    test();
+    demo();
+    */
+
+    /*
+    test();
+    demo();
+    function test() {
+        console.log("test");
+    }
+    var demo = function () {
+        console.log("demo");
+    }
+    */
+    /*
+    function test() {
+        console.log("test");
+    }
+    var demo;
+    test();
+    demo();
+    demo = function () {
+        console.log("demo");
+    }
+     */
+
+    /*
+    在高级别的浏览器中, 预解析不会提升{}中的函数
+    但是在低级别的浏览器中, 预解析会提升{}中的函数
+     */
+    /*
+    if(true){
+        // 前面我们说过默认都是0级作用域, 也就是全局作用域
+        // 只有定义了函数才会开启一个新的作用域
+        // 所以test函数虽然定义在了if的{}中, 但是并没有定义在其它函数中
+        // 所以test函数还是属于0级作用域, 所以还是一个全局函数
+        function test() {
+            console.log("test1");
+        }
+    }else{
+        function test() {
+            console.log("test2222222");
+        }
+    }
+    test();
+    */
+    /*
+    // 在低级别IE浏览器中的问题
+    // 高级版本的浏览器不会提升{}中的函数
+        function test() {
+            console.log("test1");
+        }
+        function test() {
+            console.log("test2222222");
+        }
+        if(true){
+        }else{
+        }
+        test();
+     */
+
+    if(false){
+        var test = function () {
+            console.log("test1");
+        }
+    }else{
+        var test = function () {
+            console.log("test22222");
+        }
+    }
+    test();
+    /*
+    var test;
+    if(true){
+        test = function () {
+            console.log("test1");
+        }
+    }else{
+        test = function () {
+            console.log("test22222");
+        }
+    }
+    test();
+     */
+</script>
+</body>
+</html>

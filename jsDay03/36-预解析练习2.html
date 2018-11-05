@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>36-预解析练习2</title>
+</head>
+<body>
+<script>
+    var a = 666;
+    test();
+    function test() {
+        var b = 777;
+        console.log(a);
+        console.log(b);
+        var a = 888;
+    }
+    /*
+    var a;
+    function test() {
+        var b;
+        var a;
+        b = 777;
+        console.log(a); // undefined
+        console.log(b); // 777
+        a = 888;
+    }
+    a = 666;
+    test();
+     */
+</script>
+</body>
+</html>
