@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-JS书写格式</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+        /*
+        1.在什么地方书写JS代码?
+        过去我们学习CSS的时候, 至少有三种书写的格式
+        1.1行内样式, 直接在标签上面书写
+        1.2内联样式, 在一对style标签中书写
+        1.3外联样式, 在一个单独的文件中书写
+        同理可证, 书写JS代码也有三种书写的格式
+        1.1行内方式, 直接在标签上面书写
+        1.2内联方式, 在一对script标签中书写
+        1.3外联方式, 在一个单独的文件中书写  (推荐)
+        */
+    </style>
+    <script>
+        /*
+        1.2内联方式, 在一对script标签中书写
+
+        1.2.1如果将JS代码写到了一对head标签中的一对script标签中
+        那么JS代码必须写到window.onload = function(){}的大括号中
+
+        1.2.2因为浏览器渲染界面的时候, 会从上至下的执行代码(加载元素), 如果直接在一对head标签中的一对script标签中书写JS代码, 如果做了DOM操作, 那么可能拿不到需要操作的元素
+
+        1.2.3window.onload = function (){}这句代码的含义就是等到界面上所有DOM元素加载完毕之后再执行里面的JS代码
+         */
+        // alert('hello wolrd');
+        // window.onload = function () {
+        //     alert('hello wolrd2222');
+        // }
+    </script>
+    <!--
+     1.3外联方式, 在一个单独的文件中书写
+     1.3.1由于外联方式导入JS文件的时候, 也是写在了Body标签的前面, 所以在单独的JS文件中也必须将JS代码写到window.onload = function () {}中
+     这样才能保证将来做DOM操作时, 界面上的DOM元素都加载完毕了
+
+     1.3.2注意点:
+     不能在外联方式的一对script标签中再编写JS代码, 即便编写了也不会执行
+    -->
+    <script src="01-JS书写格式.js">
+        alert("www.it666.com"); // 永远不会被执行
+    </script>
+
+</head>
+<body>
+<!--1.1行内方式, 直接在标签上面书写-->
+<!--不推荐的-->
+<!--<div onclick="alert('hello wolrd');"></div>-->
+
+<script>
+    /*
+    如果将JS代码放到了body标签的最后, 那么就不用添加window.onload = function (){}这句代码了, 因为执行到JS的时候, 上面的所有DOM元素都已经加载完毕了
+     */
+    // alert('hello wolrd3333');
+</script>
+</body>
+</html>

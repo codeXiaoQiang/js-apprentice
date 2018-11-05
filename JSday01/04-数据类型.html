@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04-数据类型</title>
+</head>
+<body>
+<script>
+    /*
+    1.可以通过 typeof 数据 的方式获取数据对应的类型
+    typeof 变量
+    typeof 常量
+
+    2.在JS中所有的数字类型都统称为Number类型, 没有C语言中int/float/double的概念
+    3.如何获取Number类型的取值范围
+    console.log(Number.MAX_VALUE); 最大值
+    console.log(Number.MIN_VALUE); 最小值
+    Infinity 无穷大
+    -Infinity 无穷小
+
+    4.在JS中用单引号或者双引号括起来的都是字符串, 没有C语言中char和字符串的概念
+    5.字符串的注意点:
+    在JS中单引号和双引号可以嵌套
+    不同类型可以嵌套, 相同类型不能嵌套
+
+    6.在JS中布尔类型只有两个取值, 要么是true, 要么是false
+    但是也有非零即真的概念, 但是本质是底层做了一次自动类型转换或者我们手动转换
+
+    7.Null和Undefined这两个都代表数据是空的
+    7.1undefined代表变量没有赋值
+    7.2null需要手动设置, 代表是一个空对象
+    7.3undefined值实际上是由null值衍生出来的，所以如果比较undefined和null是否相等，会返回true
+
+    8.在JS中有两个用于比较是否相等的关系运算符
+    ==   判断左右两侧的值是否相等
+    ===  判断左右两侧的数据类型是否相等
+     */
+
+    // 1.Number类型
+    var num1 = 3;
+    console.log(typeof num1);
+    var num2 = 3.14;
+    console.log(typeof num2);
+    console.log(typeof 666);
+
+    console.log(Number.MAX_VALUE);
+    console.log(Number.MIN_VALUE);
+    console.log(Number.MAX_VALUE + Number.MAX_VALUE);
+
+    // 2.String类型
+    var str1 = "lnj";
+    console.log(typeof str1);
+    var str2 = 'a'
+    console.log(typeof str2);
+
+    // var str3 = ""lnj""; // 错误写法
+    // var str3 = ''lnj''; // 错误写法
+    var str3 = "'lnj'";
+    console.log(str3);
+    var str4 = '"lnj"'
+    console.log(str4);
+
+    // 3.Boolean 布尔值
+    var flag1 = true;
+    var flag2 = false;
+    console.log(flag1);
+    console.log(flag2);
+
+    // 4.Null和Undefined
+    var res1 = undefined == null;
+    console.log(res1);
+    var res2 = undefined === null;
+    console.log(res2);
+
+    // 会自动将字符串转换为Number类型后再判断值是否相等
+    var res3 = 123 == "123";
+    console.log(res3); // true
+    // 不会自动转换, 会取出123的类型和"123"的类型进行比较
+    var res4 = 123 === "123";
+    console.log(res4); // false
+</script>
+</body>
+</html>
