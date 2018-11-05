@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05-转换为字符串类型上</title>
+</head>
+<body>
+<script>
+    // 1.将其它基本数据类型转换为字符串类型的第一种方式
+    /*
+    1.对于Number类型和Boolean类型来说, 直接利用变量调用toString()方法即可
+    toString()方法会将调用者转换为字符串, 并且会将转换后的结果返回给我们
+    并且不会修改调用者原有的值
+
+    2.对于null和undefined来说, 不能通过调用toString()方法来转换
+
+    3.toString()方法是可以接收参数的, 参数代表告诉解析引擎, 需要将Number类型转换为多少进制
+    toString(2) 代表需要将调用者转换为2进制
+    toString(8) 代表需要将调用者转换为8进制
+    toString(16) 代表需要将调用者转换为16进制
+     */
+    /*
+    var num = 123;
+    var res = num.toString();
+    console.log(res); // 在谷歌浏览器中String类型输出之后是灰色的
+    console.log(typeof res); // string
+    console.log(num); // 在谷歌浏览器中Number类型输出之后是蓝色的
+    console.log(typeof num);
+
+    var flag = true;
+    var res2 = flag.toString();
+    console.log(res2);
+    console.log(typeof res2);
+
+    // var n = null;
+    // var res3 = n.toString(); // 会报错
+
+    // var u = undefined;
+    // var res4 = u.toString(); // 会报错
+    */
+
+    var num = 15;
+    var res1 = num.toString(2);
+    console.log(res1);
+    var res2 = num.toString(8);
+    console.log(res2);
+    var res3 = num.toString(16);
+    console.log(res3);
+</script>
+</body>
+</html>

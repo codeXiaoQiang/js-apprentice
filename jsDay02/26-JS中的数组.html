@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>26-JS中的数组</title>
+</head>
+<body>
+<script>
+    /*
+    1.JavaScript中的数组和C语言中的数组一样, 都是用于存储一组数据的
+    2.不同的是JavaScript中的数组可以存储不同类型的数据
+    3.不同的是JavaScript中的数组是引用类型(对象), 所以提供了很多有用方便的属性和方法
+    4.不同的是JavaScript中数组的长度是可变的
+
+    4.定义数组的格式
+    var arr = new Array();
+    var arr = [];
+
+    5.数组的初始化
+    5.1定义的同时初始化
+    var arr = new Array(1, "2", false);
+    var arr = [1, "2", true];
+    5.2先定义再初始化
+    var arr = new Array();
+    arr[0] = 1;
+    arr[1] = "2";
+    arr[3] = false;
+
+    var arr = [];
+    arr[0] = 1;
+    arr[1] = "2";
+    arr[3] = false;
+     */
+
+    // 1.定义数组
+    /*
+    var arr1 = new Array();
+    console.log(arr1);
+    console.log(typeof arr1);
+
+    var arr2 = [];
+    console.log(arr2);
+    console.log(typeof arr2);
+    */
+
+    // 2.定义的同时初始化
+    /*
+    var arr1 = new Array(1, "2", false);
+    console.log(arr1);
+
+    var arr2 = [1, "2", true];
+    console.log(arr2);
+    */
+
+    // 3.先定义再初始化
+    /*
+    var arr1 = new Array();
+    arr1[0] = 1;
+    arr1[1] = "2";
+    arr1[3] = false;
+
+    var arr2 = [];
+    arr2[0] = 1;
+    arr2[1] = "2";
+    arr2[3] = false;
+
+    console.log(arr1);
+    console.log(arr2);
+    */
+
+    // 4.数组的遍历, 可以通过.length属性直接获取数组的长度
+    // 并且数组中存储的是什么类型取出来的就是什么类型
+    var arr = [1, "2", true];
+    // console.log(arr.length);
+    for(var i = 0; i < arr.length; i++){
+       console.log("arr["+i+"] = "+arr[i]+"");
+        console.log(typeof arr[i]);
+    }
+</script>
+</body>
+</html>

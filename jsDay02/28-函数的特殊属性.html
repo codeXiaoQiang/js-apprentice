@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>28-函数的特殊属性</title>
+</head>
+<body>
+<script>
+    /*
+    1.由于JavaScript中的函数是引用类型, 所以也有属性和方法
+    2.console.log();是通过()调用的, 所以log是一个函数
+    3.log函数的特点是可以接收任意多个参数
+    4.log函数的实现原理, 用到了函数类型的一个属性arguments
+
+    5.每个函数内部默认都有一个属性叫做arguments
+      arguments是一个伪数组(不是真的数组, 但是使用方式和数组很像, 本质就是一个对象)
+      6.函数中默认的arguments属性的作用就是用来保存外界传入的实参的
+      传入的所有实参都会被保存到arguments属性中
+     */
+    /*
+    // console.log(1, 2, 3);
+    // console.log("A", "B");
+    function test() {
+        console.log(arguments);
+    }
+    // test(666);
+    // test(666, true);
+    test(666, true, "hello");
+
+    // var arr = [];
+    // console.log(arr);
+    */
+
+    // 通过js函数中的arguments属性, 就可以实现可变参数的功能
+    function sum() {
+        var res = 0;
+        for(var i = 0; i < arguments.length; i++){
+            res += arguments[i];
+        }
+        return res;
+    }
+    var result = sum(1, 2);
+    console.log(result);
+</script>
+</body>
+</html>

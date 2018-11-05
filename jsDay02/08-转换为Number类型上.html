@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>08-转换为Number类型上</title>
+</head>
+<body>
+<script>
+
+    // 1.将需要转换的数据传递给Number()函数即可
+    /*
+    1.对于字符串: 如果字符串中都是数字, 那么就正常转换
+                  如果字符串中部仅仅有数字, 那么转换为NaN
+                  如果字符串中没有内容"" "   ", 那么就转换为0
+    2.对于布尔类型: true转换为1, false转换为0
+    3.对于null: 转换为0
+    4.对于undefined: 转换为NaN
+
+    总结:
+    空字符串/false/null  --> 0
+    不仅仅包含数字的字符串和undefined --> 转换为NaN
+    其它的正常转换
+     */
+    var str1 = "123";
+    var str2 = "3.14";
+    var flag1 = true;
+    var flag2 = false;
+    var n = null;
+    var u = undefined;
+
+    var res1 = Number(str1);
+    console.log(res1);
+    console.log(typeof res1);
+
+    var res2 = Number(str2);
+    console.log(res2);
+
+    // true --> 1
+    var res3 = Number(flag1);
+    console.log(res3);
+
+    // false --> 0
+    var res4 = Number(flag2);
+    console.log(res4);
+
+    // null --> 0
+    var res5 = Number(n);
+    console.log(res5);
+
+    // ""  --> 0
+    var str4 = "";
+    var res8 = Number(str4);
+    console.log("res8 = "+res8);
+
+    // "  "  --> 0
+    var str5 = "            ";
+    var res9 = Number(str5);
+    console.log("res9 = "+res9);
+
+    // undefined --> NaN
+    // NaN -- > Not a Number
+    var res6 = Number(u);
+    console.log(res6);
+
+    // 如果字符串中不仅仅有数字, 也会转换成NaN
+    var str3 = "12px";
+    var res7 = Number(str3);
+    console.log(res7);
+</script>
+</body>
+</html>

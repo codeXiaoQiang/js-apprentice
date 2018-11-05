@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>21-JS中的switch选择结构</title>
+</head>
+<body>
+<script>
+    /*
+    1.JavaScript中的switch选择结构几乎和C语言一样
+
+    2.JavaScript中特有的特性
+    2.1case后面可以放常量也可以放变量
+    2.2如果case后面是一个表达式, 会先计算表达式的值, 再判断
+    2.3JavaScript中case是判断===, 而不是判断==
+     */
+    /*
+    var score = "C";
+    switch (score){
+        case "A":
+            console.log("100分");
+            break;
+        case "B":
+            console.log("60分");
+            break;
+        default:
+            console.log("不及格");
+            break;
+    }
+    */
+    var num = 123;
+    // var value = 123;
+    switch (num){
+        // case value:
+        // case 122 + 1:
+        case "123":
+            console.log("123");
+            break;
+        case 123:
+            console.log(123);
+            break;
+        default:
+            console.log("Other");
+
+    }
+
+</script>
+</body>
+</html>

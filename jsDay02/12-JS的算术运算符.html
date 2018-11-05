@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12-JS的算术运算符</title>
+</head>
+<body>
+<script>
+    /*
+     1.JavaScript的算数运算和C语言几乎一样
+     与C语言不同的是: 在JavaScript中整数除以整数可以得到一个小数
+
+     2.JavaScript特有的特点:
+     2.1任何值和NaN运算, 得到的结果都是NaN
+     2.2任何值和字符串进行加法运算, 都会先转换为字符串之后再运算
+     2.3其它运算符, 如果参与运算的不是Number类型, 会先转换为Number类型后再运算
+     2.4只有加法才会转换为字符串, - * / %都会转换为Number
+     2.5对于取模运算m%n, m小于n, 结果就是m; 如果m等于0, 结果就是0, 如果n等于0, 结果就是NaN
+     */
+    /*
+    var res1 = 1 + 1;
+    console.log(res1);
+    var res2 = 1 - 1;
+    console.log(res2);
+    var res3 = 2 * 2;
+    console.log(res3);
+    var res4 = 10 / 3;
+    console.log(res4);
+    var res5 = 10 % 3;
+    console.log(res5);
+    */
+
+    /*
+    var res1 = 1 + NaN;
+    var res2 = 2 - NaN;
+    var res3 = 3 * NaN;
+    var res4 = 4 / NaN;
+    var res5 = 5 % NaN;
+    console.log(res1);
+    console.log(res2);
+    console.log(res3);
+    console.log(res4);
+    console.log(res5);
+    */
+
+    /*
+    // "123" + "abc" --> "123abc" -- >相当于C语言中的字符串拼接
+    var res1 = 123 + "abc";
+    console.log(res1);
+    */
+
+    /*
+    var res1 = 1 - true; // 1 - 1
+    var res2 = 2 + false; // 2 + 0
+    var res3 = 3 * false; // 3 * 0
+    var res4 = 4 / true; // 4 / 1
+    var res5 = 5 % true; // 5 % 1
+    console.log(res1);
+    console.log(res2);
+    console.log(res3);
+    console.log(res4);
+    console.log(res5);
+
+    var res6 = 1 + null; // 1 + 0
+    console.log(res6);
+
+    var res7 = 1 + undefined; // NaN
+    console.log(res7);
+
+    var res8 = 1 - "123";
+    console.log(res8);
+    */
+
+
+    var res1 = 3 % 10;
+    console.log(res1);
+
+    var res2 = 0 % 10;
+    console.log(res2);
+
+    var res3 = 3 % 0;
+    console.log(res3);
+</script>
+</body>
+</html>

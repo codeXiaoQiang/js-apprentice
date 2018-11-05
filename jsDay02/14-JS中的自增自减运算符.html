@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>14-JS中的自增自减运算符</title>
+</head>
+<body>
+<script>
+    /*
+    1.JavaScript中的自增自减运算符和C语言一样
+    也分为前置和后置
+    写到前面就是先自增或者自减, 然后再参与其它运算
+    写到后面就是先参与其它运算, 然后再自增或者自减
+     */
+    /*
+    var num = 1;
+    num++;
+    console.log(num); // 2
+    ++num;
+    console.log(num); // 3
+    num--;
+    console.log(num); // 2
+    --num;
+    console.log(num); // 1
+    */
+
+    var num = 1;
+    //          2    + 2
+    // var res = ++num + num++;
+    //          2    + 3
+    var res = ++num + ++num;
+    console.log(res);
+
+</script>
+</body>
+</html>

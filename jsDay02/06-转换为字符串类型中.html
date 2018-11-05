@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06-转换为字符串类型中</title>
+</head>
+<body>
+<script>
+    /*
+    1.利用toString()方法不能将null, undefined转换为字符串. 所以就有了第二种方式
+
+    2.将需要转换的数据传递给String()函数
+     */
+    var num = 123;
+    var res1 = String(num);
+    console.log(res1);
+    console.log(typeof res1);
+
+    var flag = false;
+    var res2 = String(flag);
+    console.log(res2);
+
+    var n = null;
+    var res3 = String(n);
+    console.log(res3);
+
+    var u = undefined;
+    var res4 = String(u);
+    console.log(res4);
+</script>
+</body>
+</html>

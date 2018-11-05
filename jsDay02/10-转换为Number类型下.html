@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10-转换为Number类型下</title>
+</head>
+<body>
+<script>
+    /*
+    1.通过Number函数或者通过+-运算符转换, 都不能转换复杂的字符串
+    "12px"
+    2.所以就有第三种转换的方式, 通过parseInt()/parseFloat()函数
+    parseInt: 只能提取整数
+    parseFloat: 可以提取小数
+
+    3.注意点:
+    parseInt/parseFloat , 会从左至右的提取, 一旦被中断后续的就提取不到了
+    对于parseFloat来说, 只能提取一个点, 第二个点会被中断
+     */
+
+    /*
+    var str1 = "3.14px";
+    var res1 = Number(str1); // NaN
+    console.log(res1);
+    var res2 = +str1; // NaN
+    console.log(res2);
+    */
+
+    /*
+    var str1 = "3.14px";
+    var res1 = parseInt(str1);
+    console.log(res1);
+    console.log(typeof res1);
+
+    var res2 = parseFloat(str1);
+    console.log(res2);
+    console.log(typeof res2);
+    */
+
+    // var str = "12px666px";
+    // var res1 = parseInt(str);
+    // console.log(res1);
+
+    var str = "3.14.15px";
+    var res1 = parseFloat(str);
+    console.log(res1);
+</script>
+</body>
+</html>

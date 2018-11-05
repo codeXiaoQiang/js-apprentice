@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>17-JS中的逗号运算符</title>
+</head>
+<body>
+<script>
+    /*
+    1.JavaScript中的逗号运算符和C语言一样
+
+    2.C语言中逗号运算符的应用场景, 一般用于同时定义多个变量
+
+    3.C语言中逗号运算符也是一个运算符, 只要是运算符都有运算的结果
+    逗号运算符的结果就是最后一个表达式的结果
+    企业开发一般用不上
+     */
+    /*
+    var a, b, c;
+    a = 10;
+    b = 20;
+    c = 30;
+    console.log(a);
+    console.log(b);
+    console.log(c);
+    */
+
+    var res = (1 + 1, 2 + 3, 3 + 3);
+    console.log(res);
+</script>
+</body>
+</html>

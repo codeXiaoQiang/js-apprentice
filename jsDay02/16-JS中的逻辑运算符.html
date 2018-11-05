@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>16-JS中的逻辑运算符</title>
+</head>
+<body>
+<script>
+    /*
+    1.JavaScript中的逻辑运算符和C语言几乎一样
+    &&  一假则假
+    ||  一真则真
+    !   真变假假变真
+
+    2.JavaScript中特有的特性
+    2.1对于非Boolean类型的数据, 会先转换为Boolean类型之后再判断
+    2.2对于逻辑&&来说
+    条件A && 添加B;
+    如果条件A不成立, 那么就返回条件A
+    如果条件A成立, 不管条件B是否成立, 都会返回条件B
+    2.3对于逻辑||来说
+    条件A || 添加B;
+    如果条件A成立, 那么就返回条件A
+    如果条件A不成立, 那么不管条件B是否成立, 都会返回条件B
+
+    3.注意点:
+    3.1对于非Boolean类型的数据, 会先转换为Boolean类型之后再判断
+    3.2判断之后的返回值, 逻辑与和逻辑或都有自己的规则
+     */
+
+    /*
+    var res1 =  true && true;
+    var res2 = false && true;
+    var res3 = true || true;
+    var res4 = false || true;
+    console.log(res1); // true
+    console.log(res2); // false
+    console.log(res3); // true
+    console.log(res4); // true
+
+    var res5 = !true;
+    var res6 = !false;
+    console.log(res5); // false
+    console.log(res6); // true;
+    */
+
+    /*
+    //       条件A不成立
+    var res1 = 0 && 1;
+    console.log(res1); // 0
+
+    var res2 = 1 && 6;
+    console.log(res2); // 6
+
+    var res3 = 1 && 0;
+    console.log(res3); // 0
+    */
+
+    var res1 = 1 || 6; // 1 --> true
+    console.log(res1); // 1
+
+    var res2 = 0 || 6;
+    console.log(res2); // 6
+
+    var res2 = 0 || 0;
+    console.log(res2); // 0
+</script>
+</body>
+</html>

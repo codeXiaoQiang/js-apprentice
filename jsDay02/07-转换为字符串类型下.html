@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07-转换为字符串类型下</title>
+</head>
+<body>
+<script>
+    /*
+    1.toString()方法只能将Number和Boolean类型转换为字符串
+    2.String()函数可以将Number/Boolean/null/undefined转换为字符串
+    3.利用算数运算符的加法运算来转换, Number/Boolean/null/undefined转换为字符串
+    格式:  需要转换的数据 + "";
+     */
+    var num = 123;
+    var flag = true;
+    var n = null;
+    var u = undefined;
+
+    // 任何类型和字符串相加, 都会先转换为字符串之后再相加
+    var res1 = num + ""; // 123 + ""  --> "123" + "" --> "123"
+    console.log(res1);
+    console.log(typeof res1);
+
+    var res2 = flag + "";
+    console.log(res2);
+
+    var res3 = n + "";
+    console.log(res3);
+
+    var res4 = u + "";
+    console.log(res4);
+</script>
+</body>
+</html>

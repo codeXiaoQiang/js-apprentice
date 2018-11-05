@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>29-函数作为参数和返回值</title>
+</head>
+<body>
+<script>
+    /*
+    1.由于JavaScript中的函数是一种数据类型, 所以可以作为其他函数的参数和返回值
+
+    注意点:
+    C语言中的函数不可以嵌套定义, 但是JavaScript中的函数可以嵌套定义
+     */
+
+    /*
+    // 1.作为其他函数的参数
+    var test = function () {
+        console.log("test");
+    }
+    test();
+
+    // var fn = test;
+    // fn();
+
+    function demo(fn) { // var fn = test
+        fn();
+    }
+    demo(test);
+    */
+
+    // 2.作为函数的返回值
+    function demo() {
+        var test = function () {
+            console.log("test");
+        }
+        return test;
+    }
+    var fn = demo(); // fn = test
+    fn();
+</script>
+</body>
+</html>

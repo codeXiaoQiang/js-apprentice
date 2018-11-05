@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>27-JS中的函数</title>
+</head>
+<body>
+<script>
+    /*
+    1.JavaScript中的函数和C语言中的函数几乎一样,都是用于封装一段代码方便复用的
+    2. 不同的是JavaScript中的函数是引用类型(对象)
+    3. 不同的是JavaScript中的形参只用写形参名称即可, 不用写var和数据类型
+    4. 不同的是JavaScript中的函数哪怕有返回值, 也不用写返回值类型
+
+    3.函数定义的格式:
+    function 函数名称(形参1, 形参2){
+       被封装的代码
+    }
+
+    2.JavaScript中特有的特性
+    2.1函数默认的返回值是undefined, 如果想返回具体的值必须写上return, 并且将返回的结果放到return后面
+    2.2JavaScript中的函数也是一种数据类型, 所以也可以保存到一个变量中
+     */
+
+    /*
+    // 1.定义一个没有形参, 没有返回值的函数
+    function sayHi() {
+        console.log("hello world");
+    }
+    sayHi();
+
+    // 2.定义一个有形参, 没有返回值的函数
+    // 注意: JS是弱语言, 形参不需要写var,也不需要写数据类型
+    // 只需要写一个形参名称即可, 相当于占位
+    function sayHello(name) {
+        console.log("hello-" + name);
+    }
+    sayHello("lnj");
+
+    // 3.定义一个有多个形参, 没有返回值的函数
+    // 不能出现同名的函数, 会覆盖
+    // function sayHello(name, age) {
+    function sayHello2(name, age) {
+        console.log("name = "+name+", age = "+age+"");
+    }
+    sayHello2("lnj", 13);
+
+    // 4.定义一个有多个形参, 有返回值的函数
+    function sum(a, b) {
+        var res = a + b;
+        return res;
+    }
+    var res = sum(10, 20);
+    console.log(res);
+    */
+
+    /*
+    function test() {
+        console.log("随便写写");
+    }
+    // 如果函数没有通过return返回结果, 默认的返回值就是undefined
+    var res = test();
+    console.log(res);
+
+    function sum(a, b) {
+        var res = a + b;
+        return;
+    }
+    // 如果函数写了return,但是return后面没有放数据, 默认的返回值就是undefined
+    var res2 = sum(10, 20);
+    console.log(res2);
+
+    function minus(a, b) {
+        var res = a - b;
+        return res;
+    }
+    var res3 = minus(10, 20);
+    console.log(res3);
+    */
+
+
+    // 定义函数的第一种格式
+    function test() {
+        console.log("test");
+    }
+
+    // 定义函数的第二种格式
+    var demo = function () {
+        console.log("demo");
+    }
+
+    test();
+    demo();
+</script>
+</body>
+</html>

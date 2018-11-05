@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>09-转换为Number类型中</title>
+</head>
+<body>
+<script>
+    /*
+    1.第一种方式: 将需要转换的数据传递给Number()函数
+    2.第二种方式; 利用算数运算符来转换
+    在需要转换的类型前面加上+加号或者-减号即可
+    注意点: +加号不会改变数据的正负性
+            -减号会改变数据的正负性
+     */
+    var str1 = "123";
+    var str2 = "3.14";
+    var flag1 = true;
+    var flag2 = false;
+    var n = null;
+    var u = undefined;
+
+    var res1 = +str1;
+    console.log(res1);
+    console.log(typeof res1);
+
+    var res2 = -str1;
+    console.log(res2);
+    console.log(typeof res2);
+
+    var res3 = +str2;
+    console.log(res3);
+
+    var res4 = +flag1;
+    console.log(res4);
+
+    var res5 = +flag2;
+    console.log(res5);
+
+    var res6 = +n;
+    console.log(res6);
+
+    var res7 = +u;
+    console.log(res7);
+</script>
+</body>
+</html>

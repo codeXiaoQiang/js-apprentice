@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11-转换为Boolean类型</title>
+</head>
+<body>
+<script>
+    // 将需要转换的数据传递给Boolean()函数即可
+    /*
+    1.对于字符串而言: 只要不是空字符串(没有任何内容), 都会转换为false
+                      只要字符串中有内容(包含空格/Table), 都会转换为true
+
+    2.对于Number类型而言: 只要不是0都会转换为true, 只有0会转换为false
+
+    3.对于null和undefined而言, 都会转换为false
+
+    4.对于NaN也会转换为false
+
+    总结: "" / 0 / null / undefined / NaN  --> false
+     */
+    /*
+    var str1 = "";  // "" --> false
+    var str2 = " "; // " " --> true;
+    var str3 = "abc"; // " " --> true;
+    var res1 = Boolean(str1);
+    console.log(res1);
+
+    var res2 = Boolean(str2);
+    console.log(res2);
+
+    var res3 = Boolean(str3);
+    console.log(res3);
+    */
+
+    /*
+    var num1 = 0;
+    var num2 = -1;
+    var num3 = 1;
+    var res1 = Boolean(num1);
+    console.log(res1);
+    var res2 = Boolean(num2);
+    console.log(res2);
+    var res3 = Boolean(num3);
+    console.log(res3);
+    */
+
+    var n = null;
+    var u = undefined;
+    var res1 = Boolean(n);
+    console.log(res1);
+    var res2 = Boolean(u);
+    console.log(res2);
+
+    var value = NaN;
+    var res3 = Boolean(value);
+    console.log(res3);
+</script>
+
+</body>
+</html>
