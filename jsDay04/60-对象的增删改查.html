@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>60-对象的增删改查</title>
+</head>
+<body>
+<script>
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.say = function () {
+            console.log(this.name, this.age);
+        }
+    }
+    // 给Person的原型对象添加了一个type属性
+    Person.prototype.type = "人";
+    // 1.如何创建对象
+    var p = new Person("lnj", 13);
+    // 2.如何访问对象的属性(查询)
+    // 2.1对象.属性名称方式, 操作属性
+    // 2.2对象["属性名称"]方式, 操作属性
+    console.log(p.name);
+    console.log(p["age"]);
+    p.name = "zq";
+    p["age"] = 66;
+    // 3.如何新增属性
+    // 对象中如何没有就会新增(新增)
+    p.score = 59.5;
+    console.log(p);
+    // 4.如何删除对象中的属性
+    delete p.name;
+    console.log(p);
+    // 5.如何判断对象中有没有某个属性
+    // 5.1通过 "属性名称" in 对象方式来判断, 如果有就返回true, 如果没有就返回false
+    //    特点: 会先在当前对象中找有没有, 如果没有会去当前对象的原型对象上找有没有, 一直找到null都没有就会返回false
+    console.log("age" in p);
+    console.log("name" in p);
+    console.log("type" in p);
+    // 5.2通过对象.hasOwnProperty("属性名称")方式来判断, 只会在当前对象上查找, 如果当前对象上有就返回true, 如果当前对象上没有就返回false, 不会去 当前对象的原型对象上查找
+    console.log(p.hasOwnProperty("age"));
+    console.log(p.hasOwnProperty("type"));
+
+    /*
+    // 问题: 我们可以判断某个属性是否是当前对象的属性
+    //       我们也可以判断某个属性是否是当前对象或者原型上的属性
+    //       那么我们能不能判断某个属性时候是原型上的属性呢?
+    if(!p.hasOwnProperty("type")){
+        // type不是当前对象上的属性
+        if("type" in p){
+            // 一定是原型上的属性
+            console.log("type是原型上的属性");
+        }
+    }
+    */
+
+    console.log(prototypeProperty(p, "type"));
+
+    // 判断指定的属性是否是原型上的属性
+    function prototypeProperty(obj, name) {
+        if(!obj.hasOwnProperty(name)){
+            // type不是当前对象上的属性
+            if(name in obj){
+                // 一定是原型上的属性
+                return true;
+            }
+        }
+        return false;
+    }
+</script>
+</body>
+</html>

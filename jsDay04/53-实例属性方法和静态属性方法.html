@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>53-实例属性方法和静态属性方法</title>
+</head>
+<body>
+<script>
+    /*
+    1.什么是实例?
+    通过构造函数创建出来的对象, 我们就称之为实例
+    也就是实例就是对象的另一个名称而已
+
+    2.什么是实例属性和实例方法?
+    实例的属性就是通过对象才能访问的属性, 我们就称之为实例的属性
+    实例的方法就是通过对象才能访问的方法, 我们就称之为实例的方法
+
+    3.什么是静态属性和静态的方法?
+    静态的属性和方法就是不需要通过对象就能访问的属性和方法, 就是静态属性和方法
+    通过构造函数就能够直接访问的属性和访问, 我们就称之为静态属性和方法
+    创建函数的第一种方式
+    function test() {
+        console.log("test");
+    }
+    创建函数的第二种方式
+    var demo = function () {
+        console.log("demo");
+    }
+    创建函数的第三种方式
+    上面两种的本质就是最后一种的简写
+    所以只要定义了一个函数, 就会创建一个函数对象
+    既然是对象就可以动态的添加属性和方法
+    var fn = new Function("console.log(\"fn\");");
+
+     */
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.say = function () {
+            console.log(this.name, this.age);
+        }
+    }
+    /*
+    // 这里通过new Person()创建出来的p对象我们就称之为实例
+    var p = new Person("lnj", 13);
+    // 这里通过p.xxx访问的属性, 我们就称之为实例属性
+    console.log(p.name);
+    console.log(p.age);
+    // 这里通过p.xxx()访问的方法, 我们就称之为实例方法
+    p.say();
+    */
+    // 将属性和方法添加给了构造函数, 这里添加的属性和方法将来就只能通过构造函数来访问
+    // 这里添加的属性和方法就是静态的属性和方法
+    Person.type = "人";
+    Person.eat = function () {
+        console.log("eat");
+    };
+
+    // var p = new Person("lnj", 13);
+    // console.log(p.type);
+    // p.eat();
+    console.log(Person.type);
+    Person.eat();
+
+</script>
+</body>
+</html>

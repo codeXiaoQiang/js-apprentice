@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>59-JS多态</title>
+</head>
+<body>
+<script>
+    /*
+    var value = 123;
+    console.log(value);
+    value = true;
+    console.log(value);
+    value = "lnj";
+    console.log(value);
+    */
+
+    function Dog(name) {
+        this.name = name;
+        this.brak = function () {
+            console.log("汪汪叫");
+        }
+    }
+
+    function Cat(name) {
+        this.name = name;
+        this.brak = function () {
+            console.log("喵喵叫");
+        }
+    }
+
+    var dog = new Dog("wc");
+    var cat = new Cat("mm");
+
+    function eat(animal) {
+        animal.brak();
+    }
+    eat(dog);
+    eat(cat);
+</script>
+</body>
+</html>

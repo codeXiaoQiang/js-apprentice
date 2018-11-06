@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>63-对象的深拷贝</title>
+</head>
+<body>
+<script>
+    function Person(name, age, dog) {
+        this.name = name;
+        this.age = age;
+        this.say = function () {
+            console.log(this.name, this.age);
+        };
+        this.dog = dog;
+    }
+    var p1 = new Person("lnj", 13, {
+        name: "wc",
+        age: "3"
+    });
+
+    var p2 = new Person();
+
+    // p2.name = p1.name;
+    // p2.age = p2.age;
+    // p2.dog = p1.dog;
+    function deepCopy(o1, o2){
+        // 取出第一个对象的每一个属性
+        for(var key in o1){
+            // 取出第一个对象当前属性对应的值
+            var item = o1[key]; // dog
+            // 判断当前的值是否是引用类型
+            // 如果是引用类型, 我们就重新开辟一块存储空间
+            if(item instanceof Object){
+                var temp = new Object();
+                /*
+                {name: "wc",age: "3"}
+                 */
+               deepCopy(item, temp);
+                o2[key] = temp;
+            }else{
+                // 基本数据类型
+                o2[key] = o1[key];
+            }
+        }
+    }
+
+    deepCopy(p1, p2);
+    console.log(p1.dog.name); // wc
+    p2.dog.name = "mm";
+    console.log(p1.dog.name); // wc
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>61-遍历对象</title>
+</head>
+<body>
+<script>
+    /*
+    1.在JavaScript中对象是可以直接遍历的
+    利用高级for循环就可以直接遍历对象
+    for(var key in obj){
+    }
+    会将对象中的每一个属性依次取出来赋值给key
+    对象中有多少个属性,循环就会执行多少次
+     */
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.say = function () {
+            console.log(this.name, this.age);
+        }
+    }
+    var p = new Person("lnj", 33);
+
+    for (var key in p){
+        // console.log(key);
+
+        if(p[key] instanceof  Function){
+            continue;
+        }
+        // 下列的代表, 代表去对象中查找当前遍历到名称的属性
+        console.log(p[key]);
+
+        // 下列的代码,代表去对象中查找名称叫做key的属性
+        // console.log(p.key);
+    }
+</script>
+</body>
+</html>

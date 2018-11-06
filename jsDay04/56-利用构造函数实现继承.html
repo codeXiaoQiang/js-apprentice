@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>56-利用构造函数实现继承</title>
+</head>
+<body>
+<script>
+    // 父类
+    function Person(name, age) {
+        // var p = new Object();
+        // this = p;
+        // this = stu;
+        // this.name = "lnj"; // stu.name = "lnj";
+        // this.age = 13; // stu.age = 13;
+        this.name = name;
+        this.age = age;
+        this.say = function () {
+            console.log("say");
+        }
+    }
+    // 给父类的原型添加了一个方法
+    // Person.prototype.say = function () {
+    //     console.log("say");
+    // };
+
+    // 子类
+    function Student(score, name, age) {
+        // var stu = new Object();
+        // this = stu;
+        // 修改Person构造函数内部的this为Student对象
+        //  Person.call(this);的本质就是借用Person构造函数动态给stu对象添加属性
+        // Person.call(this); // Person.call(stu);
+        Person.call(this, name, age);
+        this.score = score;
+    }
+
+    // var stu = new Student(99);
+    var stu = new Student(99, "zs", 18);
+    console.log(stu.score);
+    console.log(stu.name);
+    /*
+     Person.call(this, name, age);这种方式仅仅是借用了父类的构造函数动态的给子类添加属性, 没有其它任何的关系
+     所以在子类中是不能使用父类原型中的方法的, 所以也不推荐
+     */
+    stu.say();
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>55-bind-call-apply函数</title>
+</head>
+<body>
+<script>
+    /*
+    1.bind方法的作用
+    修改函数内部的this的, 但是不会调用这个函数, 会返回一个新的函数给我们
+
+    2.call方法的作用
+    修改函数内部的this的, 但是会调用这个函数
+
+    3.apply方法的作用
+    修改函数内部的this的, 但是会调用这个函数
+
+    以上三个方法都是专门用于修改函数内部的this的
+
+    4.call和apply的区别:
+    传递参数的形式不同, 如果是call那么参数依次用逗号隔开即可, 如果是apply那么参数都要放到一个数组中
+
+    this在函数中, 默认是window
+    this在方法中, 默认是调用该方法的那个对象
+     */
+    var obj = {
+        name: "zq"
+    };
+
+    // 定义一个函数
+    function test(a, b) {
+        console.log(a, b);
+        console.log(this);
+    }
+    // test(); // windows.test();
+    /*
+    // 会将test函数内部的this改为, 我们传递的对象, 然后返回一个修改之后的函数给我们
+    var fn = test.bind(obj);
+    // var fn = test.bind(obj, 10, 20);
+    console.log(fn);
+    fn();
+    */
+    /*
+    // 会将test函数内部的this改为, 我们传递的对象, 并且调用test函数
+    // test.call(obj);
+    test.call(obj, 10, 20);
+    */
+    // test.apply(obj);
+    test.apply(obj, [10, 20]);
+
+    /*
+    function Person() {
+        this.name = "lnj";
+        this.say = function () {
+            console.log("say");
+            console.log(this);
+        }
+    }
+    var p = new Person();
+    p.say();
+    */
+
+</script>
+</body>
+</html>

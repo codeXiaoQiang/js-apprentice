@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>57-组合继承上</title>
+</head>
+<body>
+<script>
+    // 父类
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.say = function () {
+        console.log("say");
+    };
+    // 子类
+    function Student(score, name, age) {
+        // 借用构造函数, 动态给当前对象添加属性和方法
+        /*
+        相当于把Person构造函数中的代码放到Student中执行
+        this.name = name;
+        this.age = age;
+         */
+        Person.call(this, name, age);
+        this.score = score;
+    }
+    // 将子类的原型修改为父类的原型
+    Student.prototype = Person.prototype;
+    // 将原型的归属修改为Student(保持三角恋关系)
+    Student.prototype.constructor = Student;
+    // 给子类原型对象动态添加一个方法
+    Student.prototype.eat = function () {
+        console.log("eat");
+    };
+
+    /*
+    var stu = new Student(98, "zq", 18);
+    console.log(stu.name);
+    stu.say();
+    */
+
+    /*
+    1.通过修改子类的prototype等于父类的prototype, 再修改子类原型对象的constructor等于子类构造函数的方式, 会破坏父类的三角恋关系 , 所以不推荐
+    2.由于当前子类的原型对象和父类的原型对象都是同一个对象, 所以给子类的原型添加属性或者方法, 父类也会受到影响, 所以不推荐
+     */
+    var p = new Person("lnj", 13);
+    console.log(p.__proto__.constructor);
+    p.eat();
+</script>
+</body>
+</html>

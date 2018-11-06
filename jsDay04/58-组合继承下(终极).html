@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>58-组合继承下(终极)</title>
+</head>
+<body>
+<script>
+    // 父类
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.say = function () {
+        console.log("say");
+    };
+    // 子类
+    function Student(score, name, age) {
+        // 借用构造函数, 动态给当前对象添加属性和方法
+        Person.call(this, name, age);
+        this.score = score;
+    }
+    // 将子类的原型修改为父类对象
+    Student.prototype = new Person();
+    // 将原型的归属修改为Student(保持三角恋关系)
+    Student.prototype.constructor = Student;
+    // 给子类原型对象动态添加一个方法
+    Student.prototype.eat = function () {
+        console.log("eat");
+    };
+
+    var u.say();stu = new Student(59.5, "zq", 18);
+    console.log(stu.name);
+    st
+
+    var p = new Person("lnj", 13);
+    console.log(p.__proto__.constructor);
+    p.eat();
+</script>
+</body>
+</html>

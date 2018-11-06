@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>52-对象的公有和是有属性及方法</title>
+</head>
+<body>
+<script>
+    /*
+    1.什么是全局变量和函数
+    只要写在一对script标签中或者写在一个单独的JS文件中的变量和函数就是全局的变量和函数
+    2.什么是局部的变量和函数
+    只要在其它函数中定义的变量或者函数都是局部变量和局部函数
+
+    3.对象的公有属性方法和私有属性方法
+    默认情况下对象中的属性和方法都是公有的
+     */
+    /*
+    var num = 666; // 全局变量
+    function test() { // 全局函数
+        console.log("test");
+        console.log(num); // 在其它作用域中访问全局变量
+    }
+
+    console.log(num); // 在全局作用域中访问全局变量
+    test(); // 在全局作用域中访问全局函数
+
+    function demo() {
+        test(); // 在其它作用域中访问全局函数
+    }
+    demo();
+    */
+
+    /*
+    function test() {
+        var num = 123; // 局部的变量
+        console.log(num); // 可以在当前作用域中访问当前作用域的局部变量
+
+        function demo() {
+            console.log("demo");
+        }
+        demo(); // 可以在当前作用域中访问当前作用域的局部函数
+    }
+
+    // console.log(num); // 不能在其它作用域中访问局部变量
+    demo(); // 不能在其它作用域中访问局部函数
+    */
+
+    function Person() {
+        this.name = "lnj";
+        this.age = 13;
+        this.say = function () {
+            console.log(this.name, this.age);
+            // console.log(num);
+        };
+        //其实构造函数也是一个函数, 所以在构造函数中直接定义的变量, 就是局部变量, 外界就不能访问
+        var num = 666;  // 私有属性
+        function demo() { // 私有函数
+            console.log("demo");
+        }
+    }
+    var p = new Person();
+    console.log(p.name);
+    console.log(p.age);
+    p.say();
+    // console.log(p.num);
+    // p.demo();
+</script>
+</body>
+</html>

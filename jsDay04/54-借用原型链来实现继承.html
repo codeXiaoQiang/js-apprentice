@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>54-借用原型链来实现继承</title>
+</head>
+<body>
+<script>
+    // 1.定义一个父类
+    // function Person(){
+    //     this.name = "lnj";
+    //     this.age = 13;
+    // }
+    function Person(name, age){
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.say = function () {
+        console.log(this.name, this.age);
+    }
+
+    // 2.定义一个子类
+    function Student(score) {
+        // this.score = 99;
+        this.score = score;
+    }
+    // 修改Student的原型为Person对象
+    // 由于直接创建了父类对象作为子类的原型对象, 所以在指定原型对象的时候就必须指定父类的参数
+    // 但是在企业开发中每个子类对象的参数都可能不一样, 所以这种方案不行
+    Student.prototype = new Person();
+    Student.prototype.constructor = Student;
+
+    // var stu1 = new Student();
+    var stu2 = new Student("zs", 18, 99);
+    console.log(stu1.name);
+</script>
+</body>
+</html>
