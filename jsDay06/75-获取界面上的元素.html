@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>75-获取界面上的元素</title>
+</head>
+<body>
+<div class="father" id="box">
+    <div class="son">我是子元素</div>
+</div>
+<div class="father" id="box">
+    <p name="ppp">我是段落</p>
+</div>
+<script>
+    /*
+    1.自定义对象
+    function Person(){}
+    var p = new Person();
+    2.内置对象
+    Array/String/Boolean/Number/....
+    3.宿主对象
+    简单的可以理解为浏览器提供的对象
+    DOM和BOM中的对象都是宿主对象
+     */
+    // 1.通过ID获取界面上的元素
+    // 会将id名称为指定名称的的元素返回给我们
+    // 注意点:
+    // 如果id名称重复了, 返回的是第一个找到的元素
+    // 返回的是一个宿主对象
+    // var oDiv = document.getElementById("box");
+    // console.log(oDiv);
+    // console.dir(oDiv);
+
+    // 2.通过类名获取界面上的元素
+    // 找到所有类名为指定名称的元素, 放到一个集合对象中返回给我们
+    // 这个集合对象是一个伪数组(对象)
+    // 注意点: 有兼容性问题 IE9才支持
+    // var oDivs = document.getElementsByClassName("father");
+    // console.log(oDivs);
+    // console.dir(oDivs);
+    // console.log(oDivs instanceof Array);
+
+    // 3.通过标签名称获取界面上的元素
+    // var oDivs = document.getElementsByTagName("div");
+    // console.log(oDivs);
+    // console.dir(oDivs);
+
+    // 4.通过name属性名称来获取界面上的元素
+    // 注意点: 在不同浏览器执行结果可能不同
+    // var oDivs = document.getElementsByName("ppp");
+    // console.log(oDivs);
+    // console.dir(oDivs);
+
+    // 5.根据选择器来获取界面上的元素
+    // 找到界面上所有名称叫做div的标签
+    // var oDiv = document.querySelector("div");
+    // 找到界面上所有类名叫father的标签
+    // var oDiv = document.querySelector(".father");
+    // 找到界面上所有id叫box的标签
+    // var oDiv = document.querySelector("#box");
+    // 简而言之, CSS中所有的选择器都可以在这里使用
+    // 注意点:
+    // 会返回第一个找到的元素
+    // IE8才能用
+    // var oDiv = document.querySelector("div>p");
+    // console.log(oDiv);
+
+    var oDivs = document.querySelectorAll("div");
+    console.log(oDivs);
+    console.dir(oDivs);
+</script>
+</body>
+</html>

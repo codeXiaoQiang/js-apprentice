@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>76-文档的加载过程</title>
+    <script>
+        // var oDiv = document.querySelector(".father");
+        // console.log(oDiv); // null
+        window.onload = function () {
+            var oDiv = document.querySelector(".father");
+            console.log(oDiv); // null
+        }
+    </script>
+</head>
+<body>
+<div class="father">
+    <div class="son">
+        123
+    </div>
+</div>
+<script>
+    /*
+    1.浏览器在加载一个界面的时候, 是按照从上至下的顺序加载的
+    2.如果将script标签写在head标签中, 那么执行js代码的时候, 网页还没有加载完毕
+      DOM对象也还没有准备完毕, 所以可能获取不到我们需要的元素
+    3.如果将script标签写在body标签的最末尾,  DOM对象已经准备完毕了, 所以我们可以获取到我们需要的元素
+    4.如果非要把script标签写在head标签中, 那么需要执行的代码最好写好onload方法中,
+    onload方法的作用是等待网页上所有的资源加载完毕之后才会执行
+    网页上所有的资源包含所有的标签/图片/CSS文件/JS文件等
+    5.window.onload和将script标签写在body最后的区别:
+    window.onload执行时, 不仅DOM对象准备好了, 网页上所有资源也都准备好了
+    body后的script标签执行时, 仅仅代表DOM对象准备好了, 而网页上的其它资源不一定准备好了
+    综上所述:  body后的script标签的效率高于window.onload
+     */
+    // var oDiv = document.querySelector(".father");
+    // console.log(oDiv); // null
+</script>
+</body>
+</html>
