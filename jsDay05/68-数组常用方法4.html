@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>68-数组常用方法4</title>
+</head>
+<body>
+<script>
+    // 1.如何遍历数组
+    var arr = [1, 3, 5];
+    // 传统的遍历
+    // for(var i = 0; i < arr.length; i ++){
+    //     console.log(arr[i]);
+    // }
+
+    // forEach会依次取出调用者的每一个元素, 每取出一个元素就会执行一次回调函数
+    // 并且会将当前取出的元素传递给回调函数
+    // arr.forEach(function (ele) {
+    //     console.log(ele);
+    // });
+
+    // 和filter函数差不多, 都用于过滤元素, 只有满足添加的元素才会被添加到新的数组中
+    // 但是和filter函数的区别是, filter返回的数组中只有满足添加的元素
+    // 而map返回的数组中不满足条件的元素会存储一个undefined
+    var res = arr.map(function (ele) {
+        if(ele == 3){
+            return ele;
+        }
+    });
+    console.log(res);
+</script>
+</body>
+</html>

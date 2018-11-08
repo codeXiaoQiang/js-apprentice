@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>66-数组常用方法2</title>
+</head>
+<body>
+<script>
+    // var arr = [1, 3, 5];
+    // 1.如何清空数组?
+    // arr = []; // 推荐
+    // arr.length = 0;
+    // splice方法用于删除数组中的元素
+    // 第一个参数: 从什么地方开始删除
+    // 第二个参数: 需要删除多少个
+    // arr.splice(0, arr.length);
+    // console.log(arr);
+
+    // 2.数组的拼接
+    /*
+    var arr1 = [1, 3, 5];
+    var arr2 = [2, 4, 6];
+    // 注意点: 数组不支持直接用于+号来拼接
+    // 如果使用+号来拼接数组, 会先调用数组的toString方法,
+    // 然后再将转换后的字符串进行拼接
+    // var arr = arr1 + arr2;
+    // console.log(typeof arr);
+    // console.log(arr);
+
+    // concat() 方法用于合并两个或多个数组。
+    // 此方法不会更改现有数组，而是返回一个新数组。
+    var res = arr1.concat(arr2);
+    // console.log(arr1);
+    console.log(res);
+
+    // Array的toString方法会返回保存内容的字符串
+    // Array的valueOf方法会返回数组本身
+    // console.log(arr1.toString());
+    // console.log(arr1.valueOf());
+    */
+
+
+    // 3. 数组的截取
+    /*
+    var arr = [1, 2, 3, 4, 5, 6];
+    // slice() 方法返回一个新的数组对象，
+    // 这一对象是一个由 begin和 end（不包括end）
+    // 第一个参数: 从什么地方开始截取
+    // 第二个参数: 截取到什么地方位置, 不包括这个结束的元素
+    var res = arr.slice(1, 3);
+    console.log(res);
+    */
+
+    // 4.查找元素
+    /*
+    // 返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1。
+    // 注意点: 默认是从左至右的查找, 一旦找到就会自动停止继续查找
+    var arr = [1, 2, 6, 4, 5, 6];
+    // var res = arr.indexOf(6);
+
+    // 从第3个索引开始查找, 找6
+    // var res = arr.indexOf(6, 3);
+    // lastIndexOf会从右至左的查找
+    // var res = arr.lastIndexOf(6);
+
+    // find方法需要传递一个函数, 内部会遍历调用者(数组), 取出每一个元素
+    // 取出一个元素就调用一次传入的函数, 将取出的元素传递给这个函数
+    // 只要有一个元素满足函数中的条件就会停止查找
+    // 注意点: 在IE浏览器中会有问题
+    
+    // var res = arr.find(test);
+    // console.log(res);
+    // function test(ele) {
+    //     if(ele === 6){
+    //         return ele;
+    //     }
+    // }
+    // var res = arr.find(function (ele) {
+    //     return ele === 6;
+    // });
+    // var res = arr.findIndex(function (ele) {
+    //     return ele === 6;
+    // });
+    */
+    /*
+    内部的实现原理
+    filter函数会创建一个新的数组
+    var arr = [6, 6];
+    当执行回调函数的时候, 返回的是true, 就会将当前遍历到的元素放到新的数组中
+     */
+    /*
+    var res = arr.filter(function (ele, idx) {
+       return ele === 6;
+    });
+    console.log(res);
+    // 作用: 通过MDN自己学习some/every
+    */
+
+    // 5.将数组转换为字符串
+    var arr = [1, 3, 5]; // --> 1|3|5   --> 1~3~5
+    // console.log(arr.toString());
+    // join方法可以用指定的连接符号将数组中所有的元素连接起来, 转换为一个字符串之后返回给我们
+    var res = arr.join("~");
+    console.log(res);
+</script>
+</body>
+</html>

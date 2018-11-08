@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>71-时间对象</title>
+</head>
+<body>
+<script>
+    // 1.如何创建时间对象
+    /*
+    var date = new Date();
+    console.log(date);
+    // 注意点: 如果通过逐个传入参数的方式指定月份, 会出现误差
+    // 误差是1, 因为月份在JS中的Date对象中是从0开始的
+    var date3 = new Date(2019, 10, 11, 9, 8, 7);
+    console.log(date3);
+    var date4 = new Date("2019-11-11 9:8:7");
+    console.log(date4);
+
+    // 获取当前时间距离1970年1月1日相差的毫秒
+    var date2 = Date.now();
+    console.log(date2);
+    */
+    var date = new Date();
+    // console.log(date);
+    // // 默认老外喜欢的时间格式
+    // console.log(date.toString());
+    // console.log(date.toLocaleString());
+    // // 以下的方法在不同浏览器输出的格式不同
+    // console.log(date.toTimeString());
+    // console.log(date.toLocaleTimeString());
+    // console.log(date.toDateString());
+    // console.log(date.toLocaleDateString());
+
+    // 时间的格式化
+    // console.log(date.getFullYear());
+    // console.log(date.getMonth() + 1); // 从0开始
+    // console.log(date.getDate()); // 获取是第几天
+    // console.log(date.getHours());
+    // console.log(date.getMinutes());
+    // console.log(date.getSeconds());
+    var res = formartDate(date);
+    console.log(res);
+
+    function formartDate(date) {
+        // 有性能问题
+        /*
+        var str = "";
+        str += date.getFullYear();
+        str += "-";
+        str += (date.getMonth() + 1);
+        str += "-";
+        str += date.getDate();
+        str += " ";
+        str += date.getHours();
+        str += ":";
+        str += date.getMinutes();
+        str += ":";
+        str += date.getSeconds();
+        */
+        var arr = [];
+        arr.push(date.getFullYear());
+        arr.push("-");
+        arr.push(date.getMonth() + 1);
+        arr.push("-");
+        arr.push(date.getDate());
+        arr.push(" ");
+        arr.push(date.getHours());
+        arr.push(":");
+        arr.push(date.getMinutes());
+        arr.push(":");
+        arr.push(date.getSeconds());
+        return arr.join("");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>64-作业需要用到的方法补充</title>
+</head>
+<body>
+<div class="box" id="father">
+    123
+    <span>span</span>
+    <a href="#">aaaa</a>
+</div>
+<div class="box">456</div>
+<script>
+    // 1.通过JS代码动态的找到HTML标签
+    /*
+    // document我们称之为文档对象, 这个对象中保存了当前网页中所有的HTM标签
+    // 所以我们可以利用这个对象查询, 我们需要找到的标签
+    // querySelector格式: querySelector("选择器");
+    // querySelector会将找到的第一个元素返回给我们
+
+    // console.log(document);
+    // var div = document.querySelector("div");
+    // var div = document.querySelector(".box");
+    // var div = document.querySelector("#fahter");
+    // var div = document.querySelector(".box");
+    // console.log(div);
+
+    // querySelectorAll格式: querySelectorAll("选择器");
+    // querySelectorAll会将找到的所有元素返回给我们
+    var divs = document.querySelectorAll(".box");
+    console.log(divs);
+    */
+
+    // 2.如何通过JS动态的修改HTML元素的;样式
+    /*
+    var div = document.querySelector("#father");
+    console.log(div);
+    div.style.width = "200px";
+    div.style.height = "200px";
+    div.style.backgroundColor = "red";
+    div.style.borderRadius = "50%";
+    */
+
+    // 3.如何动态的创建一个HTML元素
+    /*
+    // document.createElement("标签的名称");
+    var div = document.createElement("div");
+    var p = document.createElement("p");
+    var span = document.createElement("span");
+    console.log(div);
+    console.log(p);
+    console.log(span);
+    */
+
+    // 4.如何将动态创建的元素添加到另一个元素中
+    /*
+    var div = document.querySelector("#father");
+    // console.log(div);
+    var p = document.createElement("p");
+    // console.log(p);
+    // 元素对象.appendChild(元素对象)
+    // 会将传入的元素添加到调用的元素中
+    div.appendChild(p);
+    */
+
+    // 5.如何删除一个指定元素
+    /*
+    var a = document.querySelector("div>a");
+    console.log(a);
+    // 通过访问一个元素对象的parentElement属性, 可以找到当前元素对象的父元素(父节点)
+    console.log(a.parentElement);
+    // 通过一个元素的父元素调用removeChild方法,就可以将该父元素中指定的子元素删除
+    a.parentElement.removeChild(a);
+    */
+
+    // 6.在JS中如不断的重复执行某一段代码?
+    /*
+    function test(){
+        console.log("test");
+    }
+    // 每隔多少毫秒执行一次第一个参数
+    setInterval(test, 1000);
+    */
+
+    /*
+    var num = 1;
+    setInterval(function () {
+        console.log("test", num);
+        num++;
+    }, 1000);
+    */
+    document.onkeydown = function (e) {
+        console.log(e.key);
+    }
+</script>
+</body>
+</html>

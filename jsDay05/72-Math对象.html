@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>72-Math对象</title>
+</head>
+<body>
+<script>
+    /*
+    Math和前面学习的Array/String/Date不一样, 前面学习的这些都是内置构造函数
+    Math是一个对象
+    var Math = {
+       PI: 3.1415926,
+       xx: xxxxx
+    }
+    Math.PI; 圆周率
+    Math.floor()   向下取整
+    Math.ceil()     向上取整
+    Math.round()    四舍五入
+    Math.abs()      绝对器
+    Math.random() 生成随机数
+
+    Math.sin()/Math.cos()/Math.power()/Math.sqrt()
+     */
+    // console.log(Math.PI);
+
+    /*
+    var num = 3.14;
+    var res1 = Math.floor(num); // 3
+    console.log(res1);
+    var res2 = Math.ceil(num); // 4
+    console.log(res2);
+
+    var value = 3.5;
+    var res3 = Math.round(value);
+    console.log(res3);
+    */
+
+    // 会生成一个0~1的随机值, 不包括1
+    // var res = Math.random();
+    // console.log(res);
+
+    function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+    }
+    // 需求: 要求生成1~10的随机数
+    var res = getRandomIntInclusive(1, 10);
+    console.log(res);
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>69-字符串常用的方法</title>
+</head>
+<body>
+<script>
+    /*
+    1.基本类型
+    Number  12  3.14
+    Boolean  false true
+    null
+    undefined
+    String  "lnj" "a"
+
+    2.基本类型的包装类型
+    通过Number/Boolean/String类型的构造函数创建的对象, 我们就称之为包装类型
+    var num2 = new Number(666);
+    var flag2 = new Boolean(false);
+     */
+    /*
+    var num1 = 12; // 基本类型
+    var num2 = new Number(666);
+    // console.log(num1);
+    // console.log(num2);
+    // console.log(typeof num1);
+    // console.log(typeof num2);
+    var flag1 = true;
+    var flag2 = new Boolean(false);
+    console.log(flag1);
+    console.log(flag2);
+
+    var str1 = "lnj";
+    var str2 = new String("www.it666.com");
+    console.log(str1);
+    console.log(str2);
+    */
+
+    // 1.如何定义字符串
+    // 通过字面量创建的字符串, 是一个常量, 是不可以修改的
+    // var str1 = 'abc';
+    // var str2 = "lnj";
+    // var str3 = new String("it666");
+
+    // 2.字符串的性能问题
+    // 由于每次定义字符串都会重新开辟一块存储空间
+    // 所以以后在企业开发中, 一定要尽量避免频繁的拼接字符串
+    // var str = "";
+    // str += "abc";
+    // str += "lnj";
+
+    // 3.字符串的拼接
+    /*
+    var str1 = "abc";
+    var str2 = "def";
+    // var res = str1 + str2; // 推荐
+    var res = str1.concat(str2);
+    console.log(res);
+    */
+
+    // 4.获取字符串中的字符
+    /*
+    var str = "abcdef";
+    // 获取指定索引对应的字符
+    // var res = str.charAt(1);
+    // var res = str.charCodeAt(0);
+    // var res = str[1]; // 兼容性问题, 支持H5才支持
+    console.log(res);
+    */
+
+    // 5.截取子串
+    /*
+    var str = "www.it666.com";
+    // 和数组中的方法一样
+    // var res = str.slice(1, 5);
+    // 从指定索引开始截取多少个字符
+    // var res = str.substr(1, 1);
+    // 从指定索引开始截取到结束索引, 不包括结束的索引
+    var res = str.substring(1, 2);
+    console.log(res);
+    */
+
+    // 6.字符串查找相关的方法
+    /*
+    var str = "www.it666.com";
+    var res = str.indexOf("6");
+    var res = str.lastIndexOf("6");
+    */
+
+    // 7.字符串切割的方法
+    // var str = "www.it666.com";
+    var str = "www|it666|com";
+    var res = str.split("|");
+    console.log(res);
+
+</script>
+</body>
+</html>

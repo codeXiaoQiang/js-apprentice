@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>70-字符串练习</title>
+</head>
+<body>
+<script>
+    // 1.基本类型调用方法的实现原理
+    /*
+    var str = "www.it666.com"; // 基本类型
+    // 再调用方法之前, JS解析器会自动将基本数据类型包装成包装类型
+    // var _str = new String(str);
+    // _str..split(".");
+    // str.split(".");
+    // _str = null;
+
+    var str2 = new String(str);
+    console.log(str2);
+    */
+
+    // 2.字符串是常量不可变
+    /*
+    var str = "lnj";
+    console.log(str[1]);
+    str[1] = "X"; // 不能修改的
+    console.log(str[1]);
+    */
+
+
+    // http://www.it666.com?name=lnj&age=13;
+    // 获取URL中的参数
+    var url = "http://www.it666.com?name=lnj&age=13";
+    // 1.找到?的位置
+    var idx = url.indexOf("?");
+    // 2.将参数截取出来
+    // +1 是截取的是否不需要?, 所以从?后面一个开始截取
+    // url.length 是字符串的长度, 而字符串索引的最大值是长度-1
+    // substring会从第一个参数开始截取, 截取到第二个参数位置, 但是不包含第二位参数所在的位置
+    var res = url.substring(idx + 1, url.length);
+    // console.log(res);
+    // 3.拆分参数
+    var arr = res.split("&");
+    // console.log(arr); // [name=lnj, age=13]
+    arr.forEach(function (ele) {
+        // [name, lnj]
+        // [age, 13]
+       var tempArray = ele.split("=");
+        console.log(tempArray);
+    });
+</script>
+</body>
+</html>
