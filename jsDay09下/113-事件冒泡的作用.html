@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>113-事件冒泡的作用</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .selected{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li class="selected item1">我是第1个li</li>
+    <li class="item2">我是第2个li</li>
+    <li class="item3">我是第3个li</li>
+    <li class="item4">我是第4个li</li>
+    <li class="item5">我是第5个li</li>
+</ul>
+<script>
+    /*
+    var oItems = document.querySelectorAll("li");
+    var currentIndex = 0;
+    for(var i = 0, len = oItems.length; i < len; i++){
+        var item = oItems[i];
+        item.index = i;
+        item.onclick = function () {
+            oItems[currentIndex].className = "";
+            this.className = "selected";
+            currentIndex = this.index;
+        }
+    }
+    */
+
+    /*
+    var item1 = document.querySelector(".item1");
+    var item2 = document.querySelector(".item2");
+    var item3 = document.querySelector(".item3");
+    var item4 = document.querySelector(".item4");
+    var item5 = document.querySelector(".item5");
+
+    var currentItem = item1;
+    item1.onclick = function () {
+        currentItem.className = "";
+        this.className = "selected";
+        currentItem = this;
+    }
+    item2.onclick = function () {
+        currentItem.className = "";
+        this.className = "selected";
+        currentItem = this;
+    }
+    item3.onclick = function () {
+        currentItem.className = "";
+        this.className = "selected";
+        currentItem = this;
+    }
+    item4.onclick = function () {
+        currentItem.className = "";
+        this.className = "selected";
+        currentItem = this;
+    }
+    item5.onclick = function () {
+        currentItem.className = "";
+        this.className = "selected";
+        currentItem = this;
+    }
+    */
+
+    var oUl = document.querySelector("ul");
+    var currentItem = oUl.children[0];
+
+    oUl.onclick = function (event) {
+        // console.log("ul被点击了");
+        // 如何获取当前触发事件的真实元素
+        event = event || window.event;
+        // 可以通过事件对象的target属性获取到真正触发事件的那个元素
+        // console.log(event.target);
+        currentItem.className = "";
+        event.target.className = "selected";
+        currentItem = event.target;
+    }
+</script>
+</body>
+</html>

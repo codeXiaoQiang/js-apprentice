@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>115-会飞的猪</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<img src="images/pig.gif" alt="">
+<script>
+    var oImg = document.querySelector("img");
+    document.onmousemove = function (event) {
+        event = event || window.event;
+        // 可以通过事件对象的pageX和pageY来获取当前鼠标的位置
+        // console.log(event.pageX);
+        // console.log(event.pageY);
+        oImg.style.left = event.pageX - oImg.offsetWidth / 2 + "px";
+        oImg.style.top = event.pageY - oImg.offsetHeight / 2 + "px";
+    }
+</script>
+</body>
+</html>

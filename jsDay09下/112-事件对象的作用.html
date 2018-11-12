@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>112-事件对象的作用</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            background: #ccc;
+        }
+        .father{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</div>
+
+<script>
+    /*
+    1.事件的三个阶段
+    1.捕获阶段  (从外向内)  1
+    2.当前目标阶段  2
+    3.冒泡的阶段 (从内向外)  3
+    注意点:
+    要么捕获和当前
+    要么当前和冒泡
+
+    2.如何设置事件到底是捕获还是冒泡?
+    需要通过addEventListener方法, 因为这个方法接收三个参数
+    第一个参数: 事件的名称
+    第二个参数: 回调函数
+    第三个参数: false冒泡  / true 捕获
+    注意点:
+    onXXXX的属性, 不接收任何参数, 所以默认就是冒泡
+    attachEvent方法, 只能接收两个参数, 所以默认就是冒泡
+    所以如果想指定为捕获, 只能使用addEventListener方法
+
+    3.为什么要么只能是捕获和当前, 要么只能是当前和冒泡?
+    这是JS处理事件的历史问题: 网景公司  /  IE
+
+    4.事件对象中eventPhase属性的作用:
+    获取当前事件的阶段
+     */
+    // 1.获取需要操作的元素
+    var oBox = document.querySelector(".box");
+    var oFDiv = document.querySelector(".father");
+    var oSDiv = document.querySelector(".son");
+
+    /*
+    oBox.addEventListener("click", function (event) {
+        event = event || window.event;
+        console.log(event.eventPhase, "box");
+    }, false);
+
+    oFDiv.addEventListener("click", function (event) {
+        event = event || window.event;
+        console.log(event.eventPhase, "father");
+    }, false);
+
+    oSDiv.addEventListener("click", function () {
+        console.log(event.eventPhase, "son");
+    }, false);
+    */
+
+
+    oBox.onclick = function (event) {
+        event = event || window.event;
+        console.log(event.eventPhase, "box");
+    };
+    oFDiv.onclick = function (event) {
+        event = event || window.event;
+        console.log(event.eventPhase, "father");
+    };
+    oSDiv.onclick = function (event) {
+        event = event || window.event;
+        console.log(event.eventPhase, "son");
+        // 阻止事件冒泡
+        // 适用于高级版本的浏览器
+        event.stopPropagation();
+        // 适用于低级版本的浏览器
+        event.cancelBubble = true;
+    };
+    /**/
+
+    /*
+    oBox.attachEvent("onclick", function (event) {
+        event = event || window.event;
+        console.log(event.eventPhase, "box");
+    }, false);
+
+    oFDiv.attachEvent("onclick", function (event) {
+        event = event || window.event;
+        console.log(event.eventPhase, "father");
+    }, false);
+
+    oSDiv.attachEvent("onclick", function () {
+        console.log(event.eventPhase, "son");
+    }, false);
+    */
+
+</script>
+</body>
+</html>

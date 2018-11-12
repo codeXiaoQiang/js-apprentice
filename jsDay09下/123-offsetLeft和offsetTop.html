@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>123-offsetLeft和offsetTop</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background: deeppink;
+            margin-left: 100px;
+            margin-top: 100px;
+        }
+        .father{
+            width: 200px;
+            height: 200px;
+            background: blue;
+            margin-left: 100px;
+            margin-top: 100px;
+            overflow: hidden;
+            position: relative;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin-left: 100px;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+<!---->
+<div class="father">
+    <div class="son"></div>
+</div>
+
+
+<!--<div></div>-->
+<script>
+    /*
+    1.offsetLeft和offsetTop作用:
+    获取元素到第一个定位元素之间的偏移位,
+    如果没有父元素是定位的, 那么就是获取到body的偏移位
+
+    2.offsetLeft和marginLeft和left的区别
+    offsetLeft:获取的是距离第一个定位元素或者body的偏移位
+    marginLeft: 获取的是CSS设置的marginLeft的值
+    left: 获取的是CSS设置的left的值
+
+    注意点:
+    1.offsetXXX返回的是数值类型, 而style.XXXX返回的都是字符串
+    2.offsetXXX是只读的, style.XXXX是可读可写的
+     */
+    /*
+    var oDiv = document.querySelector(".son");
+    console.log(oDiv.offsetLeft);
+    console.log(oDiv.offsetTop);
+    */
+    /*
+    var oDiv = document.querySelector(".son");
+    // console.log(oDiv.style.marginLeft);
+    // console.log(oDiv.style.marginTop);
+
+    console.log(getStyle(oDiv, "marginLeft"));
+    console.log(getStyle(oDiv, "marginTop"));
+
+    // console.log(getStyle(oDiv, "lef"));
+    // console.log(getStyle(oDiv, "top"));
+
+    // 获取样式兼容性的处理
+    function getStyle(obj, attr) {
+        if(obj.currentStyle){
+            return obj.currentStyle[attr];
+        }else{
+            return window.getComputedStyle(obj, null)[attr];
+        }
+    }
+    */
+
+
+    var oDiv = document.querySelector(".son");
+    // oDiv.style.width = 50 +"px";
+    // oDiv.style.height = 50 +"px";
+    // oDiv.style.marginLeft = 50 +"px";
+    // oDiv.style.marginTop = 50 +"px";
+
+    // oDiv.offsetWidth = 50 + "px";
+    // oDiv.offsetHeight = 50 + "px";
+    // oDiv.offsetLeft = 50 + "px";
+    // oDiv.offsetTop = 50 + "px";
+</script>
+</body>
+</html>

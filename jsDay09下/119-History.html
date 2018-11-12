@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>119- History</title>
+</head>
+<body>
+<button>前进</button>
+<a href="120-History.html">新界面</a>
+<script>
+    var oBtn = document.querySelector("button");
+    oBtn.onclick = function () {
+        // history对象的forward就可以前进
+        // 注意点: 只有当前访问过其它的界面, 才能通过forward方法前进
+        // 注意点: 只有当前是从其它界面跳转过来的, 才能通过back方法后退
+        // window.history.forward();
+
+        // history对象的go方法, 也可以实现前进和后退
+        // 如果给go方法传递1, 就代表前进1个界面, 传递2就代表进行2个界面
+        // 如果给go方法传递-1, 就代表后退1个界面, 传递-2就代表后退2个界面
+        // 如果给go方法传递0, 就代表刷新
+        // window.history.go(1);
+        window.history.go(0);
+        console.log("abc");
+    }
+</script>
+</body>
+</html>

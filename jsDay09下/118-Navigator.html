@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>118-Navigator</title>
+</head>
+<body>
+<script>
+    /*
+    我们经常会使用Navigator对象来判断用户当前的浏览器
+     */
+    console.log(window.navigator);
+    console.log(window.navigator.userAgent);
+    var agent = window.navigator.userAgent;
+    if(/chrome/i.test(agent)){
+        alert("当前是谷歌浏览器");
+    }else if(/firefox/i.test(agent)){
+        alert("当前是火狐浏览器");
+    }else if(/msie/i.test(agent)){
+        alert("当前是IE浏览器");
+    }else if("ActiveXObject" in window){
+        alert("当前是高级IE浏览器");
+    }
+</script>
+</body>
+</html>

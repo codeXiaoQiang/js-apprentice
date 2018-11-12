@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>122-offsetWidth和offsetHeight</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+            background-clip: content-box;
+            border: 50px solid #000;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script>
+    /*
+    1.offsetWidth和offsetHeight作用:
+    获取元素占用空间的大小
+    占用空间 = width + border + paddding
+
+    2.offsetXXXX和style.XXXX的区别:
+    offsetXXXX既可以获取行内, 也可以获取CSS样式
+    style.XXXX只能获取行内, 不能获取CSS样式
+    offsetXXXX获取到的宽度和高度, 是元素占用的宽度和高度
+    style.XXXX获取到的宽度和高度, 是元素width和height属性的宽度和高度
+    也就是不包含border + paddding
+     */
+    var oDiv = document.querySelector("div");
+    console.log(oDiv.offsetWidth);
+    console.log(oDiv.offsetHeight);
+
+    /*
+    oDiv.style.width = 100 + "px";
+    oDiv.style.height = 100 + "px";
+    // 注意点: style.XXX只能获取行内的样式, 不能获取CSS样式
+    // CSS样式是指: 在style标签中设置的样式或者在单独CSS文件中设置的样式
+    console.log(oDiv.style.width);
+    console.log(oDiv.style.height);
+    */
+
+    /*
+    // 如果想获取到CSS样式, 那么可以通过getComputedStyle方法来获取
+    // 第一个参数: 需要获取样式的元素
+    // 第二个参数: null
+    // 返回一个保存了指定元素所有CSS样式的对象给我们
+    // 注意点: getComputedStyle只能用于IE9及以上
+    var style = window.getComputedStyle(oDiv, null);
+    console.dir(style.width);
+    console.dir(style.height);
+    console.log(oDiv.currentStyle.width);
+    console.log(oDiv.currentStyle.height);
+    */
+
+    console.log(getStyle(oDiv, "width"));
+    console.log(getStyle(oDiv, "height"));
+
+    // 获取样式兼容性的处理
+    function getStyle(obj, attr) {
+        if(obj.currentStyle){
+            return obj.currentStyle[attr];
+        }else{
+            return window.getComputedStyle(obj, null)[attr];
+        }
+    }
+
+</script>
+</body>
+</html>

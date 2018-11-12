@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>116-正则表达式</title>
+</head>
+<body>
+<script>
+    /*
+    1.什么是正则表达式?
+    正则表达式就是对字符串操作的一种逻辑公式
+
+    2.正则表达式的作用?
+    1.对给定的字符串进行过滤
+    2.对给定的字符串进行提取
+    3.对给定的字符串进行替换
+
+    3.在JS中如何创建正则表达式对象
+    3.1 var reg = new RegExp('规则字符串', '可选项');
+    3.2 var reg = /规则字符串/可选项;
+     */
+
+    // 1.利用正则表达式匹配
+    /*
+    var str = "123Abc";
+    // var reg = new RegExp('a'); // 默认是区分大小写的
+    var reg = new RegExp('a', 'i'); // i就代表忽略大小写
+    // test方法: 方法检索字符串中的有没有符合规则的值。返回值是 true 或 false。
+    var res = reg.test(str);
+    console.log(res);
+    */
+    var str = "abc2018-11-11def123abc2019-12-12";
+    // 有一个坑: 如果是通过RegExp构造函数创建正则表达式对象
+    // 那么规则字符串中的\需要转义
+    // var reg = new RegExp('\\d{4}-\\d{1,2}-\\d{1,2}');
+    var reg = /\d{4}-\d{1,2}-\d{1,2}/g; // g全局匹配, 一直匹配到末尾
+    var res = reg.test(str);
+    console.log(res);
+
+    // 2.通过正则表达式提取符合规则的字符串
+    if(reg.test(str)){
+        // 字符串对象有一个match方法, 只要将正则表达式对象传递给这个方法
+        // 这个返回就会将符合规则的字符串提取出来返回给我们
+        var resStr = str.match(reg);
+        console.log(resStr);
+
+        // 字符串对象有一个replace方法, 只要将正则表达式对象传递给这个方法
+        // 这个方法就会将匹配的字符串替换为指定的字符串
+        var resStr2 = str.replace(reg, "xxoo");
+        console.log(resStr2);
+    }
+</script>
+</body>
+</html>

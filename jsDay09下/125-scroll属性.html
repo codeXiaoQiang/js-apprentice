@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>125-scroll属性</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            border: 50px solid #000;
+            padding: 50px;
+            background: red;
+            background-clip: content-box;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+<div>
+    我是内容<br>
+    我是内容<br>
+    我是内容<br>
+    我是内容<br>
+    我是内容<br>
+    我是内容<br>
+    我是内容<br>
+    我是内容<br>
+    我是内容<br>
+    我是内容<br>
+    我是内容<br>
+    我是内容<br>
+    我是内容<br>
+    我是内容<br>
+    我是内容<br>
+    我是内容<br>
+</div>
+<script>
+    /*
+    scrollHeight:
+    如果内容没有超过元素的范围, 那么就是元素的padding + height
+    如果内容超出了元素的范围, 那么就是padding + height + 超出的高度
+    scrollTop:
+    获取被移出元素范围的距离(参考点不包括border)
+     */
+    var oDiv = document.querySelector("div");
+    console.log(oDiv.scrollWidth);
+    console.log(oDiv.scrollHeight);
+
+    oDiv.onscroll = function () {
+        console.log(oDiv.scrollTop);
+    }
+</script>
+</body>
+</html>

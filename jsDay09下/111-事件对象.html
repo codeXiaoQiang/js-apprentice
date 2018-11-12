@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>111-事件对象</title>
+</head>
+<body>
+<button>我是按钮</button>
+<a href="http://www.it666.com">指趣学院</a>
+<script>
+    /*
+    1.什么是事件对象?
+    当注册的事件被触发的时候, 系统就会自动创建一个事件对象, 并且返回给我们
+    事件对象就是一个系统自动创建的对象
+
+    2.事件对象的注意点:
+    在高级版本的浏览器中, 会自动将事件对象传递给回到函数
+    在低级版本的浏览器中, 不会自动将事件对象传递给回调函数
+    在低级版本的浏览器中, 需要通过window.event来获取事件对象
+     */
+    /*
+    var oBtn = document.querySelector("button");
+    oBtn.onclick = function (event) {
+        // console.log(event);
+        event = event || window.event;
+    }
+    */
+    var oA = document.querySelector("a");
+    oA.onclick = function (event) {
+        alert("a标签被点击了");
+
+        // 禁用默认行为
+        // 企业开发推荐
+        // return false;
+        event = event || window.event;
+        // 禁用默认行为
+        // 注意点: 高级版本浏览器支持
+        event.preventDefault();
+        event.returnValue = false; // 老版本IE
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>120-History</title>
+</head>
+<body>
+<button>后退</button>
+<script>
+    var oBtn = document.querySelector("button");
+    oBtn.onclick = function () {
+        // history对象的back就可以后退
+        // window.history.back();
+        window.history.go(-1);
+    }
+</script>
+</body>
+</html>

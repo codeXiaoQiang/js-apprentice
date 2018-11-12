@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>114-移入移出事件的区别</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="father">
+    <div class="son"></div>
+</div>
+<script>
+    var oFDiv = document.querySelector(".father");
+    var oSDiv = document.querySelector(".son");
+
+    /*
+    1.onmouseover和onmouseenter的区别
+    onmouseover移入到子元素也会被触发
+    onmouseenter移入到子元素不会被触发
+    2.onmouseout和onmouseleave
+    onmouseout移出到子元素也会被触发
+    onmouseleave移出到子元素不会被触发
+    */
+    /*
+    oFDiv.onmouseover = function () {
+        console.log("移入事件被触发了");
+    }
+    oFDiv.onmouseout = function () {
+        console.log("移出事件被触发了--------");
+    }
+    */
+    /*
+    oFDiv.onmouseenter = function () {
+        console.log("移入事件被触发了");
+    }
+    oFDiv.onmouseleave = function () {
+        console.log("移出事件被触发了--------");
+    }
+    */
+
+    oFDiv.onmouseover = function () {
+        console.log("父元素移入事件被触发了");
+    };
+    oSDiv.onmouseover = function (event) {
+        // console.log("子元素移入事件被触发了--------");
+        event = event || window.event;
+        event.stopPropagation();
+        event.cancelBubble = true;
+    }
+</script>
+</body>
+</html>
