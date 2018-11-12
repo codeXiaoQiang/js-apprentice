@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>96-定时器</title>
+</head>
+<body>
+<button class="start">开始</button>
+<button class="end">停止</button>
+<script>
+    /*
+    1.JavaScript中常用的有两种定时器
+    1.1反复执行的定时器
+    1.2只执行一次的定时器
+
+    2.定时的开启和关闭
+    无论是反复执行的还是只执行一次的定时器, 都是可以手动关闭的
+     */
+    /*
+    1.1反复执行的定时器
+    第一个参数: 到指定事件之后执行的回调函数
+    第二个参数: 指定间隔的时间
+    返回值: 返回当前定时器的ID
+     */
+   var oStartBtn = document.querySelector(".start");
+   var oEndBtn = document.querySelector(".end");
+   var timerId = null;
+    oStartBtn.onclick = function () {
+        // timerId = setInterval(function () {
+        //     console.log("每个多少毫秒执行一次");
+        // }, 1000);
+        /*
+        1.2只执行一次的定时器
+        第一个参数: 到指定事件之后执行的回调函数
+        第二个参数: 指定间隔的时间
+        返回值: 返回当前定时器的ID
+         */
+        timerId = setTimeout(function () {
+            console.log("多少毫秒之后执行一次");
+        }, 1000);
+    };
+    oEndBtn.onclick = function () {
+         // clearInterval(timerId);
+        clearTimeout(timerId);
+    }
+</script>
+</body>
+</html>

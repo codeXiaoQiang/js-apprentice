@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>92-闭包</title>
+</head>
+<body>
+<script>
+    /*
+    1.什么是闭包?
+    只要函数中用到了其它函数的变量, 这个函数就是一个闭包
+    2.闭包有什么特点?
+    只要闭包还在使用外界的变量, 那么外界的变量就会一直存在
+     */
+    /*
+    function test() {
+        var num = 123; // 局部变量
+    }
+    console.log(num);
+    */
+    function test() {
+        var num = 123;
+        return function () {
+            // 在这个函数中, 用到其它函数的变量
+            console.log(num);
+        }
+    }
+    var fn = test();
+    fn();
+</script>
+</body>
+</html>

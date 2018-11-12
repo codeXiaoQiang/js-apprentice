@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>97-时间计算</title>
+</head>
+<body>
+<script>
+    // 1.获取到当前的时间
+    var now = new Date();
+    // console.log(now);
+    // 可以通过valueOf方法获取调用者距离1970/1/1相差的毫秒
+    // 1000毫秒 = 1秒   60秒 = 1分钟  60分钟 = 1小时  24小时 = 1天
+    // console.log(now.valueOf());
+    // 2.创建一个指定的时间
+    var date = new Date("2018/11/10 23:59:59");
+    // console.log(date.valueOf());
+
+    // 需求: 要求计算当前时间距离指定时间相差的天数/小时/分钟/秒钟
+    // 3.计算当前时间距离未来时间的毫秒
+    // 注意点: 时间对象可以直接进行算数运算, 系统会自动调用valueOf方法
+    var time = date - now;
+    // var time2 = date.valueOf() - now.valueOf();
+    // 将获取到的相差的毫秒转换为秒
+    var allSecond = time / 1000;
+    // 计算天数
+    //                总共的秒数 / 60  == 总共的分钟
+    //                总共的分钟 / 60 == 总共的小时
+    //                总共的小时 / 24 == 总共的天数
+    var d = parseInt(allSecond / (60 * 60 * 24));
+    console.log(d);
+    // 计算小时
+    //       allSecond / (60 * 60) == 计算总共相差的小时
+    //       %24   == 计算除开天数之后相差的小时
+    var h = allSecond / (60 * 60) % 24;
+    console.log(h);
+    // 计算分钟
+    //       allSecond / 60  == 计算总共相差的分钟
+    //       %60  === 计算除开天数和小时相差的分钟
+    var m = allSecond / 60  % 60;
+    console.log(m);
+    // 计算秒钟
+    var s = allSecond % 60;
+    console.log(s);
+
+    console.log(now);
+    console.log(date);
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>93-同步和异步</title>
+</head>
+<body>
+<button>我是第1个按钮</button>
+<button>我是第2个按钮</button>
+<button>我是第3个按钮</button>
+<button>我是第4个按钮</button>
+<button>我是第5个按钮</button>
+<script>
+    /*
+    1.什么是同步?
+    只有前面的执行完了, 后面的才能执行
+
+    默认情况下, 编写的代码都是同步的
+    2.什么是异步?
+    随时可以执行
+     */
+    /*
+    // 只有i加到10才不满足条件, 所以循环执行完毕i=10
+    for(var i = 0; i < 10; i++){
+        // 所有函数的执行都是异步的
+        function test() {
+            // 当函数调用时循环已经执行完毕了, 所以拿到的是10
+            console.log(i);
+        }
+    }
+    // 只有for循环执行完毕, 才会执行调用test的代码
+    test();
+    */
+    /*
+    for(var i = 0; i < 10; i++){
+        // 想要test函数中输入的i和循环的i同步, 必须每次执行循环都调用一次
+        function test() {
+            // 每次执行循环都调用了一次函数, 所以i就是当前的值
+            console.log(i);
+        }
+        test();
+    }
+     */
+    /*
+    for(var i = 0; i < 10; i++){
+         // 上面代码的另一种写法
+        (function(index) {
+            console.log(index);
+        })(i);
+    }
+    */
+
+
+    // 1.拿到所有的按钮
+    var oBtns = document.querySelectorAll("button");
+    // 2.给所有按钮添加点击事件
+    // 默认情况下所有的代码都是同步的
+    for(var i = 0, len = oBtns.length; i < len; i++){
+        var oBtn = oBtns[i];
+        // 所有的函数调用都是异步的
+        /*
+        oBtn.onclick = function () {
+            // 函数被调用的时候, 循环已经执行完毕了,
+            // 所以函数中打印的i循环执行完毕之后的结果
+            console.log(i);
+        }
+        */
+        // 这里的立即执行函数是为了保证index的值和循环的值同步
+        // 这里的立即执行函数保存了将来事件异步函数要用到的index
+        (function (index) {
+            // 这里注册的事件是一个闭包, 闭包中用到了刚才同步的index
+            // 所以将来执行闭包时可以拿到index
+            oBtn.onclick = function () {
+                // 监听点击事件的函数, 用到了其它函数中的变量
+                // 所以这里监听事件的函数, 是一个闭包
+                console.log(index);
+            }
+        })(i);
+    }
+</script>
+</body>
+</html>
