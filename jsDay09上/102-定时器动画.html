@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>102-定时器动画</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<button>开始</button>
+<div></div>
+<script>
+    // 1.获取需要操作的元素
+    var oDiv = document.querySelector("div");
+    var oBtn = document.querySelector("button");
+
+    // 定义一个变量记录偏移位
+    var offset = 0;
+    // 定义一个变量记录定义时
+    var timerId = null;
+    // 2.注册点击事件
+    oBtn.onclick = function () {
+        // 2.1关闭原有的定时器
+        clearInterval(timerId);
+        // 2.2重新开启定时器
+        timerId = setInterval(function () {
+            // 累加偏移位
+            offset += 10;
+            // 重新设置left
+            oDiv.style.marginLeft = offset + "px";
+        }, 100);
+    }
+</script>
+</body>
+</html>

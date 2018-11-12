@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>106-轮播图基本结构搭建</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 670px;
+            height: 300px;
+            border: 1px solid #000;
+            margin: 50px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .box .items{
+            list-style: none;
+            display: flex;
+        }
+        .box>p{
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .box>p>span{
+            display: inline-block;
+            width: 20px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 30px;
+            color: #fff;
+            background: rgba(0,0,0,0.3);
+        }
+        .left{
+            float: left;
+        }
+        .right{
+            float: right;
+        }
+        .dots{
+            list-style: none;
+            width: 120px;
+            height: 20px;
+            background: rgba(0,0,0, 0.2);
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .dots>li{
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+        }
+        .dots .selected{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul class="items">
+        <li><img src="images/ad1.jpg" alt=""></li>
+        <li><img src="images/ad2.jpg" alt=""></li>
+        <li><img src="images/ad3.jpg" alt=""></li>
+        <li><img src="images/ad4.jpg" alt=""></li>
+    </ul>
+    <p>
+        <span class="left">&lt;</span>
+        <span class="right">&gt;</span>
+    </p>
+    <ul class="dots">
+        <li class="selected"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script>
+    // 1.获取需要操作的元素
+    var oLeftBtn = document.querySelector(".left");
+    var oRightBtn = document.querySelector(".right");
+    var oUl = document.querySelector(".items");
+    var oItem = document.querySelector(".items>li");
+    var oDots = document.querySelector(".dots");
+
+    // 定义变量记录当前图片的索引
+    var currentIndex = 0;
+    // 定义变量记录每张图片的宽度
+    var itemWidth = oItem.offsetWidth;
+    // 2.添加点击事件
+    oRightBtn.onclick = function () {
+        oDots.children[currentIndex].className = "";
+        // 让当前索引递增
+        currentIndex++;
+        // 安全校验
+        if(currentIndex >= oUl.children.length){
+            currentIndex = 0;
+        }
+        // 修改UL的位置
+        oUl.style.marginLeft = -currentIndex * itemWidth + "px";
+
+        // 修改小圆点的选中状态
+        oDots.children[currentIndex].className = "selected";
+    };
+    oLeftBtn.onclick = function () {
+        oDots.children[currentIndex].className = "";
+        // 让当前索引递减
+        currentIndex--;
+        // 安全校验
+        if(currentIndex < 0){
+            currentIndex = oUl.children.length - 1;
+        }
+        // 修改UL的位置
+        oUl.style.marginLeft = -currentIndex * itemWidth + "px";
+        // 修改小圆点的选中状态
+        oDots.children[currentIndex].className = "selected";
+    }
+</script>
+</body>
+</html>
