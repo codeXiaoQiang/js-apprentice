@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>82-DOM事件</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<a href="http://www.it666.com">指趣学院</a>
+<script>
+    /*
+    1.什么是DOM事件?
+    例如: 点击/移动/内容改变 ....]
+    所有的HTML元素可以添加事件
+
+    2.点击事件
+   元素.onclick = function(){};
+   当调用者被点击的时候, 就会执行后面赋值的这个函数
+     */
+
+    // 1.获取到指定的元素
+    var oDiv = document.querySelector("div");
+    // 2.给指定的元素注册一个点击事件
+    oDiv.onclick = function () {
+        alert("我被点击了");
+    }
+
+    var oA = document.querySelector("a");
+    // 注意点:
+    // 如果是给a标签添加点击事件, 由于a标签对点击事件有默认的实现(跳转)
+    // 所以需要注意的是我们添加的点击事件不会覆盖掉系统默认的点击事件
+    // 如果不想使用系统的默认事件, 那么只需要在我们添加的函数中return false即可
+    oA.onclick = function () {
+        alert("aaaa我被点击了aaaa");
+        return false; // 禁用系统默认的事件
+    }
+</script>
+</body>
+</html>

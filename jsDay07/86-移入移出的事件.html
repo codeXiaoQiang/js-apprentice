@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>86-移入移出的事件</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+<div></div>
+<script>
+    var oDiv = document.querySelector("div");
+    // 1.监听鼠标移入元素
+    /*
+    // onmouseover作用: 监听鼠标移入元素
+    // oDiv.onmouseover = function () {
+    //     console.log("onmouseover");
+    // }
+    */
+    // onmouseenter作用: 监听鼠标移入元素
+    // 对于初学者来说, 为了避免未知的BUG, 建议使用onmouseenter
+    oDiv.onmouseenter = function () {
+        console.log("onmouseenter");
+    }
+
+    // 2.监听鼠标移出元素
+    /*
+    // oDiv.onmouseout = function () {
+    //     console.log("onmouseout");
+    // }
+    */
+    // 对于初学者来说, 为了避免未知的BUG, 建议使用onmouseleave
+    oDiv.onmouseleave = function () {
+        console.log("onmouseleave");
+    }
+
+    // 3.监听鼠标在元素中移动
+    oDiv.onmousemove = function () {
+        console.log("onmousemove");
+    }
+</script>
+</body>
+</html>

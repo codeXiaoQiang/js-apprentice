@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>78-节点的增删改查(CRUD)</title>
+</head>
+<body>
+<div class="box">
+    <p>我是p标签1</p>
+    <p class="p1">我是p标签2</p>
+</div>
+<script>
+
+    // 1.获取box元素
+    var oDiv = document.querySelector(".box");
+    // 2.如何创建一个元素
+    // 根据指定的标签名称创建一个标签(元素)
+    var oA = document.createElement("a");
+    // console.log(oA);
+
+    // 3.添加元素到界面上
+    // 将传入的元素添加到调用的元素中
+    // 注意点: 会添加到指定元素中的末尾
+    // oDiv.appendChild(oA);
+    // var oP2 = document.querySelector(".p1");
+    // var op1 = oP2.previousElementSibling || oP2.previousNode;
+    // 将第一个参数的元素插入到第二个参数元素的前面
+    // oDiv.insertBefore(oA, op1);
+    // oDiv.insertBefore(oA, oP2);
+
+    // 4.删除指定的元素
+    // 删除调用者当中的指定元素
+    // 注意点: 只能通过父节点调用removeChild删除子节点
+    //         不能自己删除自己
+    // oDiv.parentNode.removeChild(oDiv);
+    oDiv.removeChild(oDiv);
+</script>
+</body>
+</html>

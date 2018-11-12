@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>79-节点属性的操作</title>
+</head>
+<body>
+<img src="images/logo.png" alt="这里是alt" title="这里是title" lnj="666">
+
+<script>
+    // HTML标签  元素  元素节点
+    // 1.如何获取节点的属性
+    // 1.1直接获取
+    // 通过DOM查询到对应的元素之后, 返回给我们的是一个对象
+    // DOM就已经将这个元素所有的自带的属性都已经封装到这个对象中了, 所以可以直接通过对象操作属性的方式来操作属性
+    var oImg = document.querySelector("img");
+    // console.log(oImg);
+    // console.dir(oImg);
+    console.log(oImg.src);
+    console.log(oImg.alt);
+    console.log(oImg.title);
+    console.log(oImg.lnj); // undefined
+
+    // 1.2通过getAttribute方法获取
+    console.log(oImg.getAttribute("src"));
+    console.log(oImg.getAttribute("alt"));
+    console.log(oImg.getAttribute("title"));
+    console.log(oImg.getAttribute("lnj"));
+    // 为什么系统要提供两种方式来获取元素的属性?
+    // 是因为元素是可以自定义属性的
+    // 通过第一种方式 元素.属性 只能获取标签自带的属性
+    // 通过第二种方式 元素.getAttribute(属性) 既可以获取自带的属性也可以获取自定义属性
+
+    // 2.如何删除属性
+    // 2.1直接删除
+    // oImg.src = "";
+    // oImg.lnj = "";
+    // 2.2通过removeAttribute方法来删除
+    // oImg.removeAttribute("src");
+
+    // 3.如何设置属性的值
+    // 3.1直接设置
+    // oImg.title = "新设置的值";
+    // oImg.src = "images/1.jpg";
+    // 3.2通过setAttribute方法来设置
+    // 注意点: 有就修改, 没有就新增
+    // oImg.setAttribute("title", "新设置的值");
+    oImg.setAttribute("it666", "指趣");
+</script>
+</body>
+</html>

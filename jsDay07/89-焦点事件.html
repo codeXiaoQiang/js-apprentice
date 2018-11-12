@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>89-焦点事件</title>
+</head>
+<body>
+<input type="text">
+<script>
+
+    var oInput = document.querySelector("input");
+    // 1.监听元素获取焦点
+    oInput.onfocus = function () {
+        console.log("onfocus");
+    }
+    // 2.监听元素失去焦点
+    oInput.onblur = function () {
+        console.log("onblur");
+    }
+    // 3.监听元素内容改变
+    // 注意点: onchange事件不能时时获取数据的改变
+    //         onchange事件只有失去焦点的时候才会执行
+    // oInput.onchange = function () {
+    //     console.log(this.value);
+    // }
+    // 注意点:
+    // oninput事件可以时时获取数据的改变, 但是有兼容性问题
+    // IE9才能使用
+    // oInput.oninput = function () {
+    //     console.log(this.value);
+    // }
+    // 低版本的IE特有的事件
+    // oInput.onpropertychange = function () {
+    //     console.log(this.value);
+    // }
+
+    // 时时监听输入框内容改变的兼容性处理
+    function inputChange(ele, fn) {
+        if("oninput" in ele){
+            ele.oninput = fn;
+        }else{
+            ele.onpropertychange = fn;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>81-设置节点的样式</title>
+    <style>
+        .box{
+            width: 50px;
+            height: 50px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<img src="" alt="">
+<script>
+    var oDiv = document.querySelector("div");
+
+    // 如何设置元素的样式
+    // 1.通过style属性来设置
+    /*
+    // 如果是设置宽度和高度, 需要添加单位, 否则会报错
+    // 注意点: 通过style属性设置的样式都是行内样式, 所以会覆盖掉CSS代码设置的样式
+    oDiv.style.width = "100px";
+    oDiv.style.height = "100px";
+    // CSS中用-连接的属性名称, 都会去掉-, 将后面一个单词的首字母大写
+    oDiv.style.backgroundColor = "red";
+
+    // 这里返回给我们的是一个字符串
+    console.log(oDiv.style.width);
+    console.log(parseInt(oDiv.style.width));
+    */
+
+    // 2.通过className属性来设置
+    // 这里的className属性和其它的属性有点区别
+    // 默认情况下通过元素对象操作元素的属性时, 都是自带的是什么名称, 操作的时候就是什么名称
+    // 因为class是js的一个关键字, 所以这里就将HTML标签的class属性的名称改为了className
+    // var oImg = document.querySelector("img");
+    // oImg.src;
+    // oImg.alt;
+    // oImg.title;
+    // oDiv.className = "box";
+
+    /*
+    通过DOM元素对象的style属性和className属性都可以设置标签的样式
+    那么在企业开发中应该使用哪一种呢?
+    如果是操作个别的样式, 那么推荐使用style属性
+    如果是操作多个的样式, 那么推荐使用className属性
+     */
+</script>
+</body>
+</html>

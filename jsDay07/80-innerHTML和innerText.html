@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>80-innerHTML和innerText</title>
+</head>
+<body>
+<div>
+    <p>
+        我是段落
+        <span>我是span</span>
+    </p>
+</div>
+<input type="text" value="我是input中的内容">
+
+<script>
+    var oDiv = document.querySelector("div");
+    /*
+    1.innerHTML属性的作用:
+    获取或者设置调用者中的内容
+    注意点:
+    如果是获取, 会原封不动的将调用者中的内容返回给我们(包含标签)
+    如果是设置, 会利用设置的值覆盖调用调用者中所有的内容
+                并且如果设置的值中包含了HTML标签, 也会解析创建之后再添加
+     */
+    // console.log(oDiv.innerHTML);
+    // oDiv.innerHTML = "<span>我是span</span>";
+
+    /*
+    2.innerText属性的作用:
+    获取或者设置调用者中的内容
+    注意点:
+    如果是获取, 会去掉调用者中的标签, 将其它的内容返回给我们, 并且会去除两端的空格
+    如果是设置, 会利用设置的值覆盖调用调用者中所有的内容
+                并且如果设置的值中包含了HTML标签, 不会解析和创建, 会原样添加
+    有兼容性的问题, 不能很好的支持所有的浏览器
+     */
+    // console.log(oDiv.innerText);
+    // oDiv.innerText = "<a href='#'>我是a标签</a>";
+
+    /*
+    3.textContent属性的作用:
+    获取或者设置调用者中的内容
+    注意点:
+    如果是获取, 会去掉调用者中的标签, 将其它的内容返回给我们, 但是不会去除两端的空格
+    如果是设置, 会利用设置的值覆盖调用调用者中所有的内容
+                并且如果设置的值中包含了HTML标签, 不会解析和创建, 会原样添加
+    有兼容性的问题, 不能很好的支持所有的浏览器
+    */
+    // console.log(oDiv.textContent);
+    // oDiv.textContent = "<a href='#'>我是a标签</a>";
+
+    // 兼容性的处理
+    // function setInnerText(obj, ctx) {
+    //     if("textContent" in obj){
+    //         obj.textContent = ctx;
+    //     }else{
+    //         obj.innerText = ctx;
+    //     }
+    // }
+
+    var oInput = document.querySelector("input");
+    console.log(oInput.innerHTML);
+    console.log(oInput.innerText);
+    console.log(oInput.textContent);
+
+    // 前面的三个属性用于获取或者设置双标签中的内容
+    // 如果想获取或者设置input中的内容, 需要使用value属性
+    console.log(oInput.value);
+    console.log(oInput.getAttribute("value"));
+</script>
+</body>
+</html>
