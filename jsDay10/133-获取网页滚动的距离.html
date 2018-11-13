@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>133-获取网页滚动的距离</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        p{
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+<p>我是正文1</p>
+<p>我是正文2</p>
+<p>我是正文3</p>
+<p>我是正文4</p>
+<p>我是正文5</p>
+<p>我是正文6</p>
+<p>我是正文7</p>
+<p>我是正文8</p>
+<p>我是正文9</p>
+<p>我是正文10</p>
+<p>我是正文11</p>
+<p>我是正文12</p>
+<p>我是正文13</p>
+<p>我是正文14</p>
+<p>我是正文15</p>
+<p>我是正文16</p>
+<p>我是正文17</p>
+<p>我是正文18</p>
+<p>我是正文19</p>
+<p>我是正文20</p>
+<p>我是正文21</p>
+<p>我是正文22</p>
+<p>我是正文23</p>
+<p>我是正文24</p>
+<p>我是正文25</p>
+<p>我是正文26</p>
+<p>我是正文27</p>
+<p>我是正文28</p>
+<p>我是正文29</p>
+<p>我是正文30</p>
+<p>我是正文31</p>
+<p>我是正文32</p>
+<p>我是正文33</p>
+<p>我是正文34</p>
+<p>我是正文35</p>
+<p>我是正文36</p>
+<p>我是正文37</p>
+<p>我是正文38</p>
+<p>我是正文39</p>
+<p>我是正文40</p>
+<p>我是正文41</p>
+<p>我是正文42</p>
+<p>我是正文43</p>
+<p>我是正文44</p>
+<p>我是正文45</p>
+<p>我是正文46</p>
+<p>我是正文47</p>
+<p>我是正文48</p>
+<p>我是正文49</p>
+<p>我是正文50</p>
+<script>
+
+    // 1.监听网页的滚动
+    window.onscroll = function () {
+        // 2.获取网页滚动的偏移位
+        // 2.1老版本的谷歌
+        // console.log(document.body.scrollTop);
+        // 2.2老版本的其它浏览器
+        // console.log(document.documentElement.scrollTop);
+        // 2.3新版本的浏览器
+        // console.log(window.pageYOffset);
+        console.log(getPageScroll().top);
+        console.log(getPageScroll().left);
+    };
+
+    // 获取网页滚动的偏移位
+    function getPageScroll() {
+        var top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+        var left = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft;
+        return {
+            top: top,
+            left: left
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>130-获取网页可视区域的大小</title>
+</head>
+<body>
+<script>
+    // 获取浏览器可视区域的大小
+    // IE9+
+    console.log(window.innerWidth);
+    console.log(window.innerHeight);
+
+    // IE8-
+    console.log(document.documentElement.clientWidth);
+    console.log(document.documentElement.clientHeight);
+
+    // 简单的兼容性处理
+    /**
+     * 获取浏览器可视区域的大小
+     * @returns {{width: number, height: number}}
+     */
+    function getScreen() {
+        if(window.innerWidth){
+            return {
+                width: window.innerWidth,
+                height: window.innerHeight
+            }
+        }else{
+            return {
+                width: document.documentElement.clientWidth,
+                height: document.documentElement.clientHeight
+            }
+        }
+    }
+</script>
+</body>
+</html>
