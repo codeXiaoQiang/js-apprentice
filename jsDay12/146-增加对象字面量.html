@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>146-增加对象字面量</title>
+</head>
+<body>
+<script>
+    // ES6之前创建对象
+    // var obj = new Object(); // 通过构造函数创建
+    // var obj = {}; // 通过对象字面量创建
+
+    function createPerson(name, age) {
+        var obj = {
+            // name: name,
+            // age: age,
+            // say: function () {
+            //     console.log(this.name, this.age);
+            // }
+            name,
+            age,
+            say() {
+                console.log(this.name, this.age);
+            }
+        };
+        return obj;
+    }
+    var p = createPerson("zq", 34);
+    console.log(p);
+    p.say();
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>143-函数的默认参数</title>
+</head>
+<body>
+<script>
+    // ES6之前函数的默认值
+    /*
+    function say(name, age) {
+        name = name || "zq";
+        age = age || -1;
+        console.log(name, age);
+    }
+    // say("zs", 33);
+    say();
+    */
+    /*
+    // ES6开始的函数的默认值
+    function say(name = "it666", age = -1) {
+        console.log(name, age);
+    }
+    // say();
+    say("zs", 33);
+    */
+
+    // 应用场景:
+    // 某一个函数的某些参数永远都是一些固定的值,
+    // 获取用于都是通过其它函数获得的, 那么就可以使用默认参数
+    function Car(id) {
+        this.id = id;
+    }
+    function createCar(id = getRandom()) {
+        return new Car(id);
+    }
+    function getRandom() {
+        return Math.random() * 10000;
+    }
+    // var c1 = createCar(getRandom());
+    var c1 = createCar();
+    console.log(c1);
+</script>
+</body>
+</html>

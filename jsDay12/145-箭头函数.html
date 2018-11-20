@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>145-箭头函数</title>
+</head>
+<body>
+<script>
+    // 1.ES6之前如何定义函数?
+    /*
+    function say1() {
+        console.log("hello");
+    }
+    var say2 = function () {
+        console.log("hello");
+    }
+    var say3 = new Function("console.log(\"hello\")");
+    say1();
+    say2();
+    say3();
+    */
+
+    // 2.ES6开始可以使用箭头来定义函数
+    // var say = function () {
+    //     console.log("hello");
+    // }
+    /*
+    2.1箭头函数的格式
+    let 函数名称 = (形参列表) => {函数体}
+    2.2箭头函数的作用:
+    简化代码
+    修改函数中的this
+
+    2.2注意点:
+    如果函数体中只有一句代码, 那么{}可以省略
+    如果函数形参列表中只有一个形参, 那么()可以省略
+    如果函数体中只有一句代码, 并且是返回值, 那么return可以省略
+     */
+    /*
+    // var say = () => {
+    //     console.log("hello");
+    // };
+    // var say = () => console.log("hello") ;
+    // say();
+
+    // function say(name) {
+    //     console.log(name);
+    // }
+    // let say = (name) => console.log(name);
+    // let say = name => console.log(name);
+    // say("lnj");
+
+    // function sum(a, b) {
+    //     return a + b;
+    // }
+    // let sum = (a, b) => a + b;
+    // let res = sum(10, 20);
+    // console.log(res);
+
+    // function sum(a, b) {
+    //     let res = a + b;
+    //     return res;
+    // }
+
+    let sum = (a, b) => {
+        let res = a + b;
+        return res;
+    };
+    let res = sum(20, 20);
+    console.log(res);
+    */
+
+    function Person() {
+        this.age = 666;
+        var self = this;
+
+        // 1.ES6之前, 谁调用了这个函数, this就是谁
+        // setTimeout(function () {
+        //     console.log(this); // window
+        //     console.log(self);
+        // }, 1000);
+
+        // 2. ES6的箭头函数中, 没有this这个概念
+        // 它会从所在的作用域链的上一层继承this
+        setTimeout(()=>{
+            console.log(this); // Person
+        }, 1000);
+        /*
+        1.由于Person构造函数也是一个函数, 所以也会开启一个作用域
+        2.由于箭头函数是在Person构造函数的作用域中定义的, 所以数据Person构造函数作用域
+        3.箭头函数也是一个函数, 所以也会开启一个作用域
+        4.在箭头函数中使用this时, 会从所在的作用域链的上一层继承this
+
+        应用场景:
+        1. 让setTimeout/setInterval中的this变为我们想要的this
+         */
+    }
+    // var p = new Person();
+
+    function Student() {
+        this.age = 666;
+        // this.say = function () {
+        //     // 谁调用就是谁
+        //     // 可以被call/apply/bind方法修改
+        //     console.log(this);
+        // }
+        this.say = ()=>{
+            // 从上一级的作用域继承
+            // 不可以被call/apply/bind方法修改
+            // 因为箭头函数自己没有this
+            // 因为箭头函数中的this只看定义, 不看调用
+            console.log(this);
+        }
+    }
+    var stu = new Student();
+    // stu.say();
+    // stu.say.call({name:"lnj"});
+
+    // 注意点:
+    // 箭头函数中不能使用arguments
+    // function test() {
+    //     console.log(arguments);
+    // }
+    let test = () => {
+        console.log(arguments);
+    };
+    test(1, 3, 5);
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>148-ES6中的继承</title>
+</head>
+<body>
+<script>
+    // ES6之前的继承
+    /*
+    // 父类
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    // 子类
+    function Student(score, name, age) {
+        // 借用构造函数, 动态给当前对象添加属性和方法
+        Person.call(this, name, age);
+        this.score = score;
+    }
+    // 将子类的原型修改为父类对象
+    Student.prototype = new Person();
+    // 将原型的归属修改为Student(保持三角恋关系)
+    Student.prototype.constructor = Student;
+    */
+
+    // 定义父类
+    class Person{
+        constructor(name, age){
+            this.name = name;
+            this.age = age;
+        }
+        say(){
+            console.log(this.name, this.age);
+        }
+    }
+    // 定义子类
+    // 1.在子类后面添加extends 类名
+    // 这句话的含义就是告诉系统, Student是继承于Person的
+    class Student extends Person{
+        constructor(name, age, score){
+            // 2.利用super将父类的属性传递给父类
+            super(name, age);
+            this.score = score;
+        }
+        eat(){
+            console.log("正在吃东西");
+        }
+        // 在ES6中, 可以重写父类的方法
+        say(){
+            console.log(this.name, this.age, this.score);
+        }
+    }
+    // 创建父类对象
+    // let p = new Person("zs", 13);
+    // p.say();
+
+    // 创建子类对象
+    let s = new Student("zq", 34, 59.5);
+    s.eat();
+    s.say();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>147-ES6中的类</title>
+</head>
+<body>
+<script>
+    // ES6之前, 定义构造函数, 通过构造函数创建对象
+    /*
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.say = function () {
+            console.log(this.name, this.age);
+        }
+    }
+    Person.eat = function () {
+             console.log("在吃东西");
+    }
+    var p = new Person("lnj", 13);
+    p.say();
+    Person.eat();
+    */
+    // ES6开始提供了一个关键字, 专门用于定义类 class
+    // 代表定义一个名称叫做Person的类, 将来可以通过这个类创建对象
+    class Person{
+        // 构造函数, 创建对象时系统会默认执行
+        constructor(name, age){
+            this.name = name;
+            this.age = age;
+        }
+        // 在类中定义的对象方法
+        say(){
+            console.log(this.name, this.age);
+        }
+        // 在类中定义静态方法
+        static  eat(){
+            console.log("在吃东西");
+        }
+    }
+
+    // 通过类创建对象
+    let p = new Person("zq", 88);
+    p.say();
+    Person.eat();
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>141-ES6字符串模板</title>
+</head>
+<body>
+<ul></ul>
+<script>
+    /*
+    // 需求: 要求从服务器获取到数据之后, 根据数据渲染界面
+    var obj = {
+        name: "lnj",
+        age: 13,
+        gender: "male",
+        say: function () {
+            return "hello world";
+        }
+    };
+
+    // var str  = "<li>"+obj.name+"</li><li>"+obj.age+"</li><li>"+obj.gender+"</li>";
+
+    // 不用再拼接字符串, 格式更加清晰, 更有利于维护
+    var str = `
+        <li>${obj.name}</li>
+        <li>${obj.age}</li>
+        <li>${obj.gender}</li>
+        <li>${obj.say()}</li>
+    `;
+
+    var oUl = document.querySelector("ul");
+    oUl.innerHTML = str;
+    */
+
+    // 新增的字符串相关的方法
+    var str = "http://www.it666.com/images/lnj.mp4";
+    // var res = str.includes("666");
+    // var res = str.startsWith("http://");
+    let res = str.endsWith(".mp4");
+    console.log(res);
+
+</script>
+</body>
+</html>

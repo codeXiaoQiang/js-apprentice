@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>144-扩展运算符</title>
+</head>
+<body>
+<script>
+    /*
+    function sum(a, b) {
+        return a + b;
+    }
+    // 当需求变量, 需要修改函数
+    var res = sum(10, 20);
+    console.log(res);
+    */
+    /*
+    function sum() {
+        var sum = 0;
+        for(var i = 0, len = arguments.length; i< len; i++){
+            sum += arguments[i];
+        }
+        return sum;
+    }
+    // 当需求变量, 需要修改函数
+    var res = sum(10, 20, 30);
+    console.log(res);
+    */
+    // 以上都是ES6之前的做法
+    // 以下是ES6开始的作用
+    /*
+    // 可变参数的注意点: 可变参数必须在参数列表的最后
+    // function sum(...ags) {
+    // function sum(...ags, a) {
+    function sum(a, ...ags) {
+        console.log(a, ags);
+        var sum = 0;
+        for(var i = 0, len = ags.length; i< len; i++){
+            sum += ags[i];
+        }
+        return sum;
+    }
+    var res = sum(10, 20, 30);
+    console.log(res);
+    */
+
+    /*
+    function sum(a, b, c, d) {
+        return a + b + c + d;
+    }
+    var arr = [1 , 2, 3, 4];
+    // 现在数组中只有3个元素, 那么如果有100个呢? 1000个呢?
+    // var res = sum(arr[0], arr[1], arr[2]);
+    // var res = sum.apply(null, arr);
+    // 以上都是ES6之前的做法
+    // 以下是ES6开始的作用
+    // 会将数组中的元素逐个取出来赋值给形参
+    var res = sum(...arr);
+    console.log(res);
+    */
+
+    var arr1 = [1, 3, 5];
+    var arr2 = [2, 4, 6];
+    // var res = arr1.concat(arr2);
+    // 以上都是ES6之前的做法
+    // 以下是ES6开始的作用
+    var res = [...arr1, ...arr2];
+    console.log(res);
+</script>
+</body>
+</html>

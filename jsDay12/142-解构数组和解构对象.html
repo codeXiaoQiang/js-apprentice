@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>142-解构数组和解构对象</title>
+</head>
+<body>
+<script>
+    // 1.解构数组
+    /*
+    // var arr = [1, 3, 5];
+    // var a = arr[0];
+    // var b = arr[1];
+    // var c = arr[2];
+    // 会依次将数组中的内容赋值给等号左边[]中的变量
+    // let [a, b, c] = arr;
+    // 如果等号右边的数组和等号左边的内容不对等, 那么没有的就是undefined
+    // let [a, b, c] = [, 3, ];
+    // 在ES6解构数组的时候, 可以指定默认值
+    // let [a=666, b, c=777] = [, 3, ];
+    let [a=666, b, c=777] = [1, 3, 5];
+    console.log(a, b, c);
+    */
+
+    // 2.解构对象
+    /*
+    let obj = {
+        name: "lnj",
+        age: 13
+    };
+    // let name = obj.name;
+    // let age = obj.age;
+
+    // 会将对象中和属性名称和解构中变量名称一致的赋值给解构的变量
+    // let {age} = obj;
+    // console.log(age);
+    // let {name, age} = obj;
+    // let {names, age} = obj;
+    let {name = "it666", age = 666, gender="yao"} = obj;
+    console.log(name, age, gender);
+    */
+
+    // 3.应用场景
+    /*
+    let obj = {
+        name: "lnj",
+        age: 13
+    };
+    // function say(person) {
+    //     console.log(person.name, person.age);
+    // }
+    // say(obj);
+    // function say(name, age) {
+    //     console.log(name, age);
+    // }
+    // say(obj.name, obj.age);
+    // 大大的提升了开发效率, 简化了代码
+    function say({name, age}) {
+        console.log(name, age);
+    }
+    say(obj);
+    */
+
+    // 4.解构的高级使用
+    var arr = [
+        {name:"lnj", age:13},
+        {name:"zs", age:41},
+        {name:"ls", age:28}
+    ];
+    // var age = arr[0].age;
+    // []是为了解构数组, 会将数组的第0个元素给解构变量
+    // []中的{}是为了解构拿到的对象
+    // let [{age}] = arr;
+    let [{age}, {name}] = arr;
+    console.log(age, name);
+</script>
+</body>
+</html>
